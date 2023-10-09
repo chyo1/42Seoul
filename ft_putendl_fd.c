@@ -22,6 +22,11 @@ void	ft_putendl_fd(char *s, int fd)
 		write(fd, &s[idx], 1); // why &s no?
 		idx++;
 	}
+	/*while (s)
+	{
+		write(fd, s, 1); // why &s no?
+		s++;
+	} */
 	write(fd, "\n", 1);
 }
 

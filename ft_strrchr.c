@@ -15,6 +15,8 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*loc;
 
+	// cannot find & init
+	loc = (NULL);
 	while (*s)
 	{
 		if (c == *s)

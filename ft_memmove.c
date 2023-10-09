@@ -21,7 +21,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	source = src;
 	i = 0;
 
-	if (source < dest && len < (dest - source))
+	if (source < dest && len < (dest - source)) // pointer - pointer?
 	{
 		while (--len >= 0)
 			dest[len] = source[len];

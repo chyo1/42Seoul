@@ -17,7 +17,8 @@ char	*ft_strchr(const char *s, int c)
 
 	while (*s)
 	{
-		if ((char)c == *s)
+		if ((char)c == *s) // don't compare int length ?
+		// if int isn't ascii range ?
 			return ((char *)s);
 			s++;
 	}

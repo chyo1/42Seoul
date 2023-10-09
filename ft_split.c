@@ -81,10 +81,12 @@ char	**ft_split(char const *s, char c)
 
 	cnt_word = get_word_cnt(s, c);
 	ans = (char **)malloc(sizeof(char *) * (cnt_word + 1));
+	if (ans == NULL)
+		return (NULL);
 	err_loc = fill_ans(ans, s, c);
-	if (err_loc > 0)
+	if (err_loc >= 0)
 	{
-		while (err_loc > 0)
+		while (err_loc >= 0)
 		{
 			free(ans[err_loc]);
 			err_loc--;

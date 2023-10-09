@@ -47,6 +47,9 @@ int	ft_atoi(const char *str)
 		else
 			return ((int) minus * num);
 		str++;
+
+		if(minus * num < -2147483648 || 2147483647 < minus *num)
+			return (0); // return error value
 	}
 	return ((int) minus * num);
 }

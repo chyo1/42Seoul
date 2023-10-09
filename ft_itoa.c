@@ -36,7 +36,7 @@ void	change_i_to_c(char *str, long long n, unsigned int *len)
 		str[(*len)++] = '-';
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int n) // bigger than int ?
 {
 	char			*ans;
 	char			str[12];
