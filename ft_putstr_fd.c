@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:37:38 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 17:16:30 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 18:45:37 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putstr_fd(char *s, int fd)
 
 	idx = 0;
 	if (s == NULL)
-		return (NULL);
+		return ;
 	while (s[idx])
 	{
 		write(fd, &s[idx], 1);

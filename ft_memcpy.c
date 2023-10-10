@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:38:37 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 17:19:41 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 18:50:05 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t len)
 	dest = dst;
 	source = src;
 	i = 0;
-
 	while (i < len)
 	{
 		dest[i] = source[i];
