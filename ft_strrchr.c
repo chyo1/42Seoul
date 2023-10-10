@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:26:49 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 17:39:33 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 18:01:46 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (*s)
 	{
 		if (c == *s)
-			loc = s;
+			loc = (char *)s;
 		s++;
 	}
 	return (loc);

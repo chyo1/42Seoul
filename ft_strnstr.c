@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:40:07 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 17:24:27 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:59:43 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	s = 0;
 	if (*needle == '\0')
-		return (haystack);
+		return ((char *)haystack);
 	while (haystack[s] != '\0')
 	{
 		val = ft_strncmp(&haystack[s], needle, len);
 		if (val == 0)
-			return (haystack + s);
+			return ((char *)(haystack + s));
 		s++;
 	}
 	return (NULL);
