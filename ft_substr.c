@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyowchoi <hyowchoi@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 14:44:32 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/07 14:44:33 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:42:21 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		str[i] = s[start + i];
 		i++;
 	}
-	str[i] = 0;
+	str[i] = '\0';
 	return (str);
 }

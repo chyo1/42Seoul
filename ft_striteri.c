@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyowchoi <hyowchoi@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:25:07 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/07 19:25:08 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:30:18 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
@@ -26,6 +27,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		return (NULL);
 	while (idx < len)
 	{
+		f(idx, s[idx]);
 		ans[idx] = s[idx];
 		idx++;
 	}

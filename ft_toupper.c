@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyowchoi <hyowchoi@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:39:17 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/06 11:39:18 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:38:46 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_toupper(int c)

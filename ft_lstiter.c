@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/10 16:59:27 by hyowchoi          #+#    #+#             */
+/*   Updated: 2023/10/10 16:59:28 by hyowchoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void    ft_lstiter(t_list *lst, void (*f)(void *))
@@ -5,6 +17,6 @@ void    ft_lstiter(t_list *lst, void (*f)(void *))
     while (lst)
     {
         (*f)(lst);
-        lst = lst -> next;
+        lst = lst-> next;
     }
 }

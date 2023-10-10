@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyowchoi <hyowchoi@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:47:26 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/07 17:47:27 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 16:54:41 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	change_i_to_c(char *str, long long n, unsigned int *len)
@@ -36,7 +37,7 @@ void	change_i_to_c(char *str, long long n, unsigned int *len)
 		str[(*len)++] = '-';
 }
 
-char	*ft_itoa(int n) // bigger than int ?
+char	*ft_itoa(int n)
 {
 	char			*ans;
 	char			str[12];
@@ -44,11 +45,9 @@ char	*ft_itoa(int n) // bigger than int ?
 	unsigned int	len;
 
 	change_i_to_c(str, (long long)n, &len);
-
 	ans = (char *)malloc(sizeof(char) * (len + 1));
 	if (ans == NULL)
 		return (NULL);
-
 	ans[len] = '\0';
 	idx = 0;
 	while (idx < len)
@@ -57,10 +56,4 @@ char	*ft_itoa(int n) // bigger than int ?
 		idx++;
 	}
 	return (ans);
-}
-
-
-//1234 4321
-int main(){
-	printf("%s", ft_itoa(3349));
 }

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyowchoi <hyowchoi@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:40:07 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/06 11:40:08 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:24:27 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
@@ -22,11 +23,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	while (haystack[s] != '\0')
 	{
 		val = ft_strncmp(&haystack[s], needle, len);
-		// 찾으면 해당 위치 반환
 		if (val == 0)
 			return (haystack + s);
 		s++;
 	}
-	// return null
-	return (0);
+	return (NULL);
 }

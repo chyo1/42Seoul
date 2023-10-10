@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyowchoi <hyowchoi@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:39:53 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/06 11:39:54 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:13:45 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
@@ -25,11 +26,4 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		i++;
 	}
 	return (NULL);
-}
-
-#include <stdio.h>
-int main()
-{
-	char s[] = "abcdefg";
-	printf("%s", ft_memchr(s, -96, 7));
 }

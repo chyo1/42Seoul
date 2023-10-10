@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyowchoi <hyowchoi@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:16:20 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/07 17:16:21 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:15:57 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-unsigned int	get_word_cnt(char *str, char c)
+unsigned int	get_word_cnt(const char *str, char c)
 {
 	unsigned int	cnt_word;
 	unsigned int	idx;
@@ -32,22 +33,22 @@ unsigned int	get_word_cnt(char *str, char c)
 	return (cnt_word);
 }
 
-void	fill_word(char *src, char *ans, unsigned int start, unsigned int end)
+void	fill_word(const char *src, char *ans, unsigned int s, unsigned int end)
 {
 	unsigned int	idx;
 
 	idx = 0;
-	while (idx < end - start)
+	while (idx < end - s)
 	{
-		ans[idx] = src[start + idx];
+		ans[idx] = src[s + idx];
 		idx++;
 	}
 	ans[idx] = '\0';
 }
 
-int	fill_ans(char **ans, char *str, char c)
+int	fill_ans(char **ans, const char *str, char c)
 {
-	unsigned int	start;
+	unsigned int	s;
 	unsigned int	idx;
 	unsigned int	ans_idx;
 
@@ -57,13 +58,13 @@ int	fill_ans(char **ans, char *str, char c)
 	{
 		if (str[idx] != c)
 		{
-			start = idx;
+			s = idx;
 			while (str[idx] && str[idx] != c)
 				idx++;
-			ans[ans_idx] = (char *)malloc(sizeof(char) * (idx - start + 1));
+			ans[ans_idx] = (char *)malloc(sizeof(char) * (idx - s + 1));
 			if (ans[ans_idx] == NULL)
 				return (ans_idx);
-			fill_word(str, ans[ans_idx], start, idx);
+			fill_word(str, ans[ans_idx], s, idx);
 			ans_idx++;
 		}
 		else
@@ -79,6 +80,8 @@ char	**ft_split(char const *s, char c)
 	char			**ans;
 	int				err_loc;
 
+	if (!s)
+		return (NULL);
 	cnt_word = get_word_cnt(s, c);
 	ans = (char **)malloc(sizeof(char *) * (cnt_word + 1));
 	if (ans == NULL)

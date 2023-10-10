@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyowchoi <hyowchoi@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:12:09 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/07 19:12:10 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:37:52 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -26,7 +27,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	while (idx < len)
 	{
-		ans[idx] = (*f)(idx, s[idx]);
+		ans[idx] = f(idx, s[idx]);
 		idx++;
 	}
 	ans[idx] = '\0';

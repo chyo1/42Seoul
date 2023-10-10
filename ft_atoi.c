@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyowchoi <hyowchoi@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:40:13 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/06 11:40:14 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 16:49:41 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	is_space(char c)
@@ -47,16 +48,6 @@ int	ft_atoi(const char *str)
 		else
 			return ((int) minus * num);
 		str++;
-
-		if(minus * num < -2147483648 || 2147483647 < minus *num)
-			return (0); // return error value
 	}
 	return ((int) minus * num);
-}
-
-
-int main()
-{
-	char s[] = "  2147483648";
-	printf("%d %d", atoi(s), ft_atoi(s));
 }
