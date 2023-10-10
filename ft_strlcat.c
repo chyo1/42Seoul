@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:39:10 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 18:50:35 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 19:09:16 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	d = len_d;
 	if (size < len_d)
 		return (len_s + size);
-
 	if (size > 0)
 	{
 		while (d < size - 1 && src[s] != '\0')

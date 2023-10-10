@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:29:18 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 17:41:37 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/10 19:09:26 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		len++;
 	start = get_start(s1, set, len);
 	end = get_end(s1, set, len - 1);
-
 	str = (char *)malloc(sizeof(char) * (end - start + 2));
 	if (str == NULL)
 		return (NULL);
