@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:40:07 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/11 15:47:49 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:37:12 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	cmp(const char *s1, const char *s2, size_t i, size_t n)
 		i++;
 		start++;
 	}
-	if (i == n)
+//	printf("s2 val %d i: %zu n:%zu", *s2, i, n);
+	if (s2[start] != '\0')
 		return (1);
 	return (0);
 }
@@ -35,12 +36,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	int		val;
 
 	s = 0;
-	if (!needle)
+	if (*needle == 0)
 		return ((char *)haystack);
 	while (haystack[s] != '\0' && s < len)
 	{
 		val = cmp(haystack, needle, s, len);
-		//printf("idx %zu val %d\n", s, val);
+	//	printf("idx %zu val %d\n", s, val);
 		if (val == 0)
 			return ((char *)(haystack + s));
 		s++;
@@ -51,6 +52,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 // int main()
 // {
 // 	char s[] = "lorem ipsum dolor sit amet";
-// 	char b[] = "dolor";
-// 	printf("%s", ft_strnstr(s, b, 15));
+// 	//char b[] = "dolor";
+// 	printf("%s", ft_strnstr(s, s, strlen(s)));
 // }

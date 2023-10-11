@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:29:18 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 19:09:26 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:16:38 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ unsigned int	get_start(char const *s1, char const *set, unsigned int end)
 
 unsigned int	get_end(char const *s1, char const *set, unsigned int end)
 {
+	if (end == (unsigned int)-1)
+		return (0);
 	while (0 < end)
 	{
 		if (!find_set(s1[end], set))
@@ -61,6 +63,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		len++;
 	start = get_start(s1, set, len);
 	end = get_end(s1, set, len - 1);
+	if (*s1 == '\0' || start == len || end == 0)
+		return ((char *)ft_calloc(1, sizeof(char)));
 	str = (char *)malloc(sizeof(char) * (end - start + 2));
 	if (str == NULL)
 		return (NULL);
