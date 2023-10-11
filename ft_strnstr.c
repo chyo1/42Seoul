@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:40:07 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/11 15:21:55 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:47:49 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	while (haystack[s] != '\0' && s < len)
 	{
 		val = cmp(haystack, needle, s, len);
-		printf("idx %zu val %d\n", s, val);
+		//printf("idx %zu val %d\n", s, val);
 		if (val == 0)
 			return ((char *)(haystack + s));
 		s++;
