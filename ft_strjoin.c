@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:16:59 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/11 13:09:47 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:31:59 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	len1 = 0;
 	while (*s1)
-	{
-		str[len1++] = *s1;
-		s1++;
-	}
+		str[len1++] = *(s1++);
 	while (*s2)
-	{
-		str[len1++] = *s2;
-		s2++;
-	}
+		str[len1++] = *(s2++);
+	str[len1] = '\0';
 	return (str);
 }

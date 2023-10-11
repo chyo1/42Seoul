@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:38:44 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/11 14:11:34 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:46:03 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	i = 0;
 	if (source < dest)
 	{
-		while (--len >= 0)
+		while (--len > 0)
 			dest[len] = source[len];
+		dest[0] = source[0];
 	}
 	else
 	{
@@ -36,3 +37,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
+
+// int main()
+// {
+// 	char dest[] = "ldjsdipsum dolor sit a";
+// 	printf("%s", ft_memmove(dest, "consectetur", 5));
+// }
