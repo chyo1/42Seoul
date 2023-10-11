@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:52:23 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 17:03:20 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/11 13:12:12 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new->next = *lst;
+	(*new).next = *lst;
 }
