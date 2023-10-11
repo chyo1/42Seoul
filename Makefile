@@ -8,24 +8,19 @@ OBJS_MANDATORY =  $(SRCS_MANDATORY:.c=.o)
 SRCS_bonus=	$(SRCS_bonus:.c=.o)
 .PHONY : all bonus clean fclean re
 
-all : LAST_ALL
+all : $(NAME)
 	
-LAST_ALL : $(NAME)
-	rm -f LAST_BONUS
-	$(NAME) : $(OBJS_MANDATORY)
-		ar rc $@ $^
-	%.o : %.c
-		$(CC) -c $< -o $@ -I./
-	touch $@
+$(NAME) : $(OBJS_MANDATORY)
+	ar rc $(NAME) $(OBJS_MANDATORY)
 
-bonus : LAST_BONUS
+$(OBJS_MANDATORY) : $(SRCS_MANDATORY)
 	
-LAST_BONUS : $(NAME)
-	rm -f LAST_ALL;
-	$(NAME) : $(OBJS_bonus)
-		ar rc $@ $^
-	%.o : %.c
-		$(CC) -c $< -o $@ -I./
+%.o : %.c
+	$(CC) -c $< -o $@ -I./
+
+bonus : $(OBJS_bonus)
+	
+$(OBJS_bonus) : $(SRCS_bonus)
 
 clean :
 	$(RM) $(OBJS_MANDATORY) $(OBJS_bonus) 
