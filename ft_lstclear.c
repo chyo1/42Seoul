@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:57:41 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 18:48:45 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:09:52 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,18 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if ((*lst)->next)
-		ft_lstclear(&((*lst)->next), del);
-	del((*lst)->content);
-	free(*lst);
+	t_list	*node_next;
+	t_list	*node_free;
+
+	node_next = *lst;
+	while (node_next)
+	{
+		node_free = node_next;
+		node_next = node_next->next;
+		del(node_free->content);
+		free(node_free);
+	}
+	// del(node_next->content);
+	// free(node_next);
+	*lst = NULL;
 }
