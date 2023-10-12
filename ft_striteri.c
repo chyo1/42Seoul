@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:25:07 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 18:04:46 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/12 14:28:57 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	idx = 0;
 	while (s[len])
 		len++;
-	ans = (char *)malloc(sizeof(char) * (len + 1));
+	ans = (char *)malloc(1* (len + 1));
 	if (ans == NULL)
 		return ;
 	while (idx < len)

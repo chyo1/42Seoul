@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:37:18 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 17:03:53 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/12 12:32:38 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
-	char	*str;
+	char	*s;
 
-	str = b;
+	s = (char *)b;
 	i = 0;
 	while (i < len)
 	{
-		str[i] = c;
+		s[i] = c;
 		i++;
 	}
 	return (b);
