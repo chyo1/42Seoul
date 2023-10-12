@@ -13,8 +13,9 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h> //
-# include <string.h> //
+# include <stdio.h>
+# include <string.h>
+// delete headers up
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
