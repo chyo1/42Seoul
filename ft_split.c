@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:16:20 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 19:08:33 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:33:36 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ char	**ft_split(char const *s, char c)
 	char			**ans;
 	int				err_loc;
 
-	if (!s)
-		return (NULL);
 	cnt_word = get_word_cnt(s, c);
 	ans = (char **)malloc(sizeof(char *) * (cnt_word + 1));
 	if (ans == NULL)
