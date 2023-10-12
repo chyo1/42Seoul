@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:40:22 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/12 15:22:45 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:01:23 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,16 @@ void	*ft_calloc(size_t count, size_t size)
 	size_t	i;
 
 	i = 0;
-	if (size && count > (size_t) - 1 / size)
+	if (size && count > (size_t)(-1) / size)
 		return (NULL);
 	c = (char *)malloc(count * size);
-	printf("c: %p\n", c);
+	// printf("c: %p\n", c);
 	if (c == NULL)
 		return (NULL);
-	while (i / size < count)
+	while (i < count * size)
 	{
 		c[i] = 0;
 		i++;
 	}
 	return ((void *)c);
-}
-
-int main()
-{
-	ft_calloc(1, 0);
 }

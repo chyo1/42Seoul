@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:38:52 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 17:35:40 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:55:40 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t detsize)
 	size_t	src_len;
 
 	i = 0;
-	src_len = 0;
-	while (src[src_len] != '\0')
-		src_len++;
+	src_len = ft_strlen(src);
 	if (detsize != 0)
 	{
 		while (i + 1 < detsize && src[i] != '\0')

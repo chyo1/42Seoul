@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:29:18 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/11 20:16:38 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:07:17 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	unsigned int	start;
 	unsigned int	end;
 	unsigned int	len;
-	unsigned int	idx;
 
-	len = 0;
-	while (s1[len])
-		len++;
+	len = ft_strlen(s1);
 	start = get_start(s1, set, len);
 	end = get_end(s1, set, len - 1);
 	if (*s1 == '\0' || start == len || end == 0)
@@ -68,9 +65,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str = (char *)malloc(sizeof(char) * (end - start + 2));
 	if (str == NULL)
 		return (NULL);
-	idx = 0;
-	while (start <= end)
-		str[idx++] = s1[start++];
-	str[idx] = 0;
+	strlcpy(str, (s1 + start), end - start + 2);
 	return (str);
 }
