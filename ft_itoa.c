@@ -6,52 +6,71 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:47:26 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 15:38:55 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:11:13 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	change_i_to_c(char *str, long long n)
+static void	change_i_to_c(char *str, long long n)
 {
 	int				minus;
-	unsigned int	len;
+	unsigned int	idx;
 
 	minus = 0;
-	len = 0;
+	idx = 0;
 	if (n < 0)
 	{
 		minus = 1;
 		n = -n;
 	}
 	else if (n == 0)
-		str[len++] = '0';
+		str[idx++] = '0';
 	while (n != 0)
 	{
-		str[len++] = (n % 10) + '0';
+		str[idx++] = (n % 10) + '0';
 		n /= 10;
 	}
 	if (minus)
-		str[len++] = '-';
-	return (len);
+		str[idx++] = '-';
+}
+
+static unsigned int	get_len(int n)
+{
+	unsigned int	idx;
+
+	if (n == 0)
+		return (1);
+	idx = 0;
+	if (n < 0)
+		idx++;
+	while (n != 0)
+	{
+		idx++;
+		n /= 10;
+	}
+	return (idx);
 }
 
 char	*ft_itoa(int n)
 {
 	char			*ans;
-	char			str[12]; // check size
 	unsigned int	idx;
 	unsigned int	len;
+	char			tmp;
 
-	len = change_i_to_c(str, (long long)n);
+	len = get_len(n);
 	ans = (char *)malloc(sizeof(char) * (len + 1));
 	if (ans == NULL)
 		return (NULL);
+	change_i_to_c(ans, (long long)n);
 	ans[len] = '\0';
 	idx = 0;
-	while (idx < len)
+	while (idx < len / 2)
 	{
-		ans[idx] = str[len - idx - 1];
+		tmp = ans[idx];
+		ans[idx] = ans[len - idx - 1];
+		ans[len - idx -1] = tmp;
 		idx++;
 	}
 	return (ans);

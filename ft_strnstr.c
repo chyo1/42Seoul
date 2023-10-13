@@ -6,13 +6,13 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:40:07 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 12:26:24 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:14:44 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	cmp(const char *s1, const char *s2, size_t i, size_t n)
+static int	cmp(const char *s1, const char *s2, size_t i, size_t n)
 {
 	size_t	start;
 

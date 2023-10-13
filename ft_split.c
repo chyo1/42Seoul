@@ -6,13 +6,13 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:16:20 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 15:59:07 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:14:19 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	get_word_cnt(const char *str, char c)
+static unsigned int	get_word_cnt(const char *str, char c)
 {
 	unsigned int	cnt_word;
 	unsigned int	idx;
@@ -33,12 +33,12 @@ unsigned int	get_word_cnt(const char *str, char c)
 	return (cnt_word);
 }
 
-void	fill_word(const char *src, char *ans, unsigned int s, unsigned int end)
+static void	get_wrd(const char *src, char *ans, unsigned int s, unsigned int e)
 {
 	unsigned int	idx;
 
 	idx = 0;
-	while (idx < end - s)
+	while (idx < e - s)
 	{
 		ans[idx] = src[s + idx];
 		idx++;
@@ -46,7 +46,7 @@ void	fill_word(const char *src, char *ans, unsigned int s, unsigned int end)
 	ans[idx] = '\0';
 }
 
-int	fill_ans(char **ans, const char *str, char c)
+static int	fill_ans(char **ans, const char *str, char c)
 {
 	unsigned int	s;
 	unsigned int	idx;
@@ -64,7 +64,7 @@ int	fill_ans(char **ans, const char *str, char c)
 			ans[ans_idx] = (char *)malloc(sizeof(char) * (idx - s + 1));
 			if (ans[ans_idx] == NULL)
 				return (ans_idx);
-			fill_word(str, ans[ans_idx], s, idx);
+			get_wrd(str, ans[ans_idx], s, idx);
 			ans_idx++;
 		}
 		else

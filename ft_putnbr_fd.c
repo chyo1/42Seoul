@@ -6,13 +6,13 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:46:45 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 15:48:07 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:12:04 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	print(char *a, int end, int fd)
+static void	print(char *a, int end, int fd)
 {
 	while (end > 0)
 		write(fd, &a[--end], 1);

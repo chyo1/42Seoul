@@ -6,13 +6,13 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:40:13 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 11:07:33 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:11:23 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_space(char c)
+static int	is_space(char c)
 {
 	if ((9 <= c && c <= 13) || c == 32)
 		return (1);
