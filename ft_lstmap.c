@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:07:12 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/12 19:50:15 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:55:58 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	void	*con;
 
 	ans = NULL;
-	// if (!lst)
-	// 	f(lst->content);
+	if (!lst)
+		con = f(lst->content);
 	while (lst)
 	{
 		con = f(lst->content);

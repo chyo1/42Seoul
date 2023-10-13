@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:12:09 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 17:37:52 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:54:46 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	idx;
 	char			*ans;
 
-	len = 0;
 	idx = 0;
-	while (s[len])
-		len++;
+	len = ft_strlen(s);
 	ans = (char *)malloc(sizeof(char) * (len + 1));
 	if (ans == NULL)
 		return (NULL);
