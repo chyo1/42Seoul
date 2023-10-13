@@ -6,11 +6,11 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:53:05 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 17:45:07 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:01:55 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -21,6 +21,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	p = ft_lstlast_bonus(*lst);
+	p = ft_lstlast(*lst);
 	(p)->next = new;
 }
