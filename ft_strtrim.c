@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:29:18 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/12 17:07:17 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:08:13 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ unsigned int	get_end(char const *s1, char const *set, unsigned int end)
 	}
 	return (end);
 }
-
+// 1111111111000111111 1234
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char			*str;

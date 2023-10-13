@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:39:10 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/12 14:49:16 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:08:38 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	return (len_d + len_s);
 }
-
-// int main()
-// {
-// 	char a[] = "asdf";
-// 	printf("%lu", ft_strlcat(a, NULL, 0));
-// }

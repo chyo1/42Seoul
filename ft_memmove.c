@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:38:44 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/12 12:58:12 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:46:28 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	if (!dst && !src)
 		return (NULL);
-	dest = dst;
-	source = src;
+	dest = (char *)dst;
+	source = (const char *)src;
 	i = 0;
 	if (len && source < dest)
 	{

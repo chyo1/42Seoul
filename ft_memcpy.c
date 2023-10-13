@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:38:37 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/12 13:58:38 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:20:26 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t len)
 	const char	*source;
 	size_t		i;
 
-	dest = dst;
-	source = src;
+	dest = (char *)dst;
+	source = (const char *)src;
 	if (!dst && !src)
 		return (NULL);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:40:29 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/12 12:03:59 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:59:44 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,11 @@ char	*ft_strdup(const char *s1)
 {
 	char	*a;
 	size_t	len;
-	size_t	i;
 
-	len = 0;
-	i = 0;
 	len = ft_strlen(s1);
 	a = (char *)malloc(sizeof(char) * (len + 1));
 	if (a == NULL)
 		return (NULL);
-	while (i < len)
-	{
-		a[i] = s1[i];
-		i++;
-	}
-	a[i] = '\0';
+	ft_strlcpy(a, s1, len + 1);
 	return (a);
 }

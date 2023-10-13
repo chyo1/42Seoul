@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:40:07 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/12 14:48:28 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:26:24 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	cmp(const char *s1, const char *s2, size_t i, size_t n)
 		i++;
 		start++;
 	}
-//	printf("s2 val %d i: %zu n:%zu", *s2, i, n);
 	if (s2[start] != '\0')
 		return (1);
 	return (0);
@@ -43,17 +42,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	while (haystack[s] != '\0' && s < len)
 	{
 		val = cmp(haystack, needle, s, len);
-	//	printf("idx %zu val %d\n", s, val);
 		if (val == 0)
 			return ((char *)(haystack + s));
 		s++;
 	}
 	return (NULL);
 }
-
-// int main()
-// {
-// 	char s[] = "lorem ipsum dolor sit amet";
-// 	//char b[] = "dolor";
-// 	printf("%s", ft_strnstr(s, s, strlen(s)));
-// }

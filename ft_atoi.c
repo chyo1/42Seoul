@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:40:13 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/10 18:48:09 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:07:33 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 int	is_space(char c)
 {
 	if ((9 <= c && c <= 13) || c == 32)
-		return (1);
-	return (0);
-}
-
-int	is_digit(char c)
-{
-	if ('0' <= c && c <= '9')
 		return (1);
 	return (0);
 }
@@ -43,7 +36,7 @@ int	ft_atoi(const char *str)
 	}
 	while (*str)
 	{
-		if (is_digit(*str))
+		if (ft_isdigit(*str))
 			num = num * 10 + (*str - '0');
 		else
 			return ((int) minus * num);

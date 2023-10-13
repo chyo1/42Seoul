@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:39:53 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/11 19:18:50 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:43:27 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	size_t			i;
 	unsigned char	cmp;
 
-	cmp = (unsigned char)c;
 	str = (unsigned char *)s;
+	cmp = (unsigned char)c;
 	i = 0;
 	while (i < n)
 	{
@@ -27,7 +27,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return (str + i);
 		i++;
 	}
-	if (cmp == 0 && i != n)
-		return (str + i);
 	return (NULL);
 }
