@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 11:38:44 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 17:19:55 by hyowchoi         ###   ########.fr       */
+/*   Created: 2023/10/10 16:53:05 by hyowchoi          #+#    #+#             */
+/*   Updated: 2023/10/13 17:45:07 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char		*dest;
-	const char	*source;
-	size_t		i;
+	t_list	*p;
 
-	if (!dst && !src)
-		return (NULL);
-	dest = (char *)dst;
-	source = (const char *)src;
-	i = 0;
-	if (len && source < dest)
+	if (*lst == 0)
 	{
-		while (--len > 0)
-			dest[len] = source[len];
-		dest[0] = source[0];
+		*lst = new;
+		return ;
 	}
-	else if (len && dest <= source)
-	{
-		while (i < len)
-		{
-			dest[i] = source[i];
-			i++;
-		}
-	}
-	return (dst);
+	p = ft_lstlast_bonus(*lst);
+	(p)->next = new;
 }

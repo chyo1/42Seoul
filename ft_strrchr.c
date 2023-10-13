@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:26:49 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 12:07:33 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:20:48 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)s);
 	return (loc);
 }
-

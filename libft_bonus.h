@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   libft_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 16:59:27 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 13:54:10 by hyowchoi         ###   ########.fr       */
+/*   Created: 2023/10/13 17:38:47 by hyowchoi          #+#    #+#             */
+/*   Updated: 2023/10/13 17:39:21 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_BONUS_H
+# define LIBFT_BONUS_H
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
-{
-	if (lst == 0)
-		(*f)(lst->content);
-	while (lst)
-	{
-		(*f)(lst->content);
-		lst = lst->next;
-	}
+# include "libft.h"
 
-}
+#endif
+
