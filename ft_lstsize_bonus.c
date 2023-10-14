@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:05:59 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 18:06:09 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/14 13:46:10 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_lstsize(t_list *lst)
 	while (lst)
 	{
 		size++;
-		lst = lst -> next;
+		lst = lst->next;
 	}
 	return (size);
 }
