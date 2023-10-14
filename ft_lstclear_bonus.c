@@ -6,11 +6,11 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:57:41 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/14 13:28:25 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:35:07 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
@@ -22,8 +22,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	{
 		node_free = node_next;
 		node_next = node_next->next;
-		del(node_free->content);
-		free(node_free);
+		ft_lstdelone(node_free, del);
 	}
 	*lst = 0;
 }

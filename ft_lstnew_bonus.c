@@ -6,11 +6,11 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:59:34 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/14 13:28:45 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:35:15 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 t_list	*ft_lstnew(void *content)
 {

@@ -1,7 +1,7 @@
 
 RM=			rm -f
 NAME=		libft.a
-CC=			gcc -Wall -Wextra -Werror
+CC=			cc -Wall -Wextra -Werror
 SRCS_MAN=	ft_calloc.c ft_isprint.c ft_memset.c ft_split.c ft_strlcat.c ft_strnstr.c ft_toupper.c ft_isalnum.c\
 				ft_itoa.c ft_memchr.c ft_putchar_fd.c ft_strchr.c ft_strlcpy.c ft_strrchr.c ft_isalpha.c ft_memcmp.c\
 				ft_putendl_fd.c ft_strdup.c ft_strlen.c ft_strtrim.c ft_atoi.c ft_isascii.c ft_memcpy.c ft_putnbr_fd.c\

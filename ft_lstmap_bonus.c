@@ -6,11 +6,11 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:07:12 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/14 13:28:38 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:35:14 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 static void	check_null(t_list *lst, void *(*f)(void *))
 {
