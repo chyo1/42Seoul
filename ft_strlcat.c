@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:39:10 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 12:08:38 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/14 11:28:53 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		return (ft_strlen(src));
 	len_d = ft_strlen(dst);
 	len_s = ft_strlen(src);
-	i = 0;
 	if (size < len_d)
 		return (len_s + size);
 	if (size > 0)
 	{
+		i = 0;
 		while (len_d + i + 1 < size && src[i] != '\0')
 		{
 			dst[len_d + i] = src[i];

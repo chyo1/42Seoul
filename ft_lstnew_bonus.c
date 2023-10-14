@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:59:34 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 18:06:07 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/14 13:28:45 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*root;
 
-	root = (t_list *) malloc(sizeof(t_list));
+	root = (t_list *)malloc(sizeof(t_list));
 	if (!root)
-		return (NULL);
+		return (0);
 	root->content = content;
-	root->next = NULL;
+	root->next = 0;
 	return (root);
 }

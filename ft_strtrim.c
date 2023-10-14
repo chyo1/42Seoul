@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:29:18 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 17:15:00 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/14 12:21:21 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	len = ft_strlen(s1);
 	start = get_start(s1, set, len);
 	end = get_end(s1, set, len - 1);
-	if (*s1 == '\0' || start == len || end == 0)
+	if (s1[0] == '\0' || start == len)
 		return ((char *)ft_calloc(1, sizeof(char)));
 	str = (char *)malloc(sizeof(char) * (end - start + 2));
 	if (str == NULL)

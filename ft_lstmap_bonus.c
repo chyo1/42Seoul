@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:07:12 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 18:06:05 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/14 13:28:38 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*node;
 	void	*con;
 
-	ans = NULL;
+	ans = 0;
 	check_null(lst, f);
 	while (lst)
 	{
@@ -34,14 +34,14 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		if (!con)
 		{
 			ft_lstclear(&ans, del);
-			return (NULL);
+			return (0);
 		}
 		node = ft_lstnew(con);
 		if (!node)
 		{
 			ft_lstclear(&ans, del);
 			del(con);
-			return (NULL);
+			return (0);
 		}
 		ft_lstadd_back(&ans, node);
 		lst = lst->next;

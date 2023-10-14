@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:59:29 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 18:06:04 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/14 13:28:32 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
-		return (NULL);
+		return (0);
 	while (lst->next)
 		lst = lst->next;
 	return (lst);

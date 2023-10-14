@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:40:55 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 11:24:18 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/14 12:43:45 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned int	idx;
-
-	idx = 0;
-	while (*s)
-	{
-		write(fd, s, 1);
-		s++;
-	}
+	ft_putstr_fd(s, fd);
 	write(fd, "\n", 1);
 }

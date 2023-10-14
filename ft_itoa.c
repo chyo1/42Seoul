@@ -6,7 +6,7 @@
 /*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:47:26 by hyowchoi          #+#    #+#             */
-/*   Updated: 2023/10/13 17:11:13 by hyowchoi         ###   ########.fr       */
+/*   Updated: 2023/10/14 12:42:01 by hyowchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,9 @@ static unsigned int	get_len(int n)
 {
 	unsigned int	idx;
 
-	if (n == 0)
-		return (1);
 	idx = 0;
-	if (n < 0)
-		idx++;
+	if (n <= 0)
+		idx = 1;
 	while (n != 0)
 	{
 		idx++;
@@ -52,18 +50,11 @@ static unsigned int	get_len(int n)
 	return (idx);
 }
 
-char	*ft_itoa(int n)
+static void	str_swap(char *ans, unsigned int len)
 {
-	char			*ans;
 	unsigned int	idx;
-	unsigned int	len;
 	char			tmp;
 
-	len = get_len(n);
-	ans = (char *)malloc(sizeof(char) * (len + 1));
-	if (ans == NULL)
-		return (NULL);
-	change_i_to_c(ans, (long long)n);
 	ans[len] = '\0';
 	idx = 0;
 	while (idx < len / 2)
@@ -73,5 +64,18 @@ char	*ft_itoa(int n)
 		ans[len - idx -1] = tmp;
 		idx++;
 	}
+}
+
+char	*ft_itoa(int n)
+{
+	char			*ans;
+	unsigned int	len;
+
+	len = get_len(n);
+	ans = (char *)malloc(sizeof(char) * (len + 1));
+	if (ans == NULL)
+		return (NULL);
+	change_i_to_c(ans, (long long)n);
+	str_swap(ans, len);
 	return (ans);
 }
