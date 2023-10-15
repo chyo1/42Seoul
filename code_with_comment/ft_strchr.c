@@ -18,11 +18,13 @@ char	*ft_strchr(const char *s, int c)
 
 	cmp = (char)c;
 	while (*s)
-	{
+	{	
+		// 해당 위치 찾았을 때 반환
 		if (cmp == *s)
 			return ((char *)s);
 			s++;
 	}
+	// 비교 문자가 null 문자일 때
 	if (cmp == 0)
 		return ((char *)s);
 	return (NULL);

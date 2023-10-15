@@ -14,6 +14,7 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
+	// 해당 리스트가 널이라면 last node도 null
 	if (!lst)
 		return (0);
 	while (lst->next)

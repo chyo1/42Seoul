@@ -17,6 +17,7 @@ int	ft_lstsize(t_list *lst)
 	int	size;
 
 	size = 0;
+	// list의 끝까지 탐색하며 list의 길이(size)를 잼
 	while (lst)
 	{
 		size++;

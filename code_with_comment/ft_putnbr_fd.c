@@ -24,6 +24,7 @@ void	ft_putnbr_fd(int n, int fd)
 	char	a[12];
 
 	idx = 0;
+	// int형 최솟값일 때 예외처리
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// memcpy에서 값이 덮어쓰여지는 걸 방지하기 위해 만든? 버전, 지금은 똑같이 동작
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	char		*dest;
@@ -22,6 +22,11 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (NULL);
 	dest = (char *)dst;
 	source = (const char *)src;
+
+	/*
+	source < dest일 때 앞에서부터 복사하면 override의 위험성 존재
+	이를 방지하기 위해 값을 뒤에서부터 복사
+	*/
 	if (len && source < dest)
 	{
 		while (--len > 0)

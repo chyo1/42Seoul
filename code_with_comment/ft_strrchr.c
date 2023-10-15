@@ -21,10 +21,12 @@ char	*ft_strrchr(const char *s, int c)
 	loc = (NULL);
 	while (*s)
 	{
+		// strchr에선 찾았을 때 return, 여기선 해당 위치 저장
 		if (cmp == *s)
 			loc = (char *)s;
 		s++;
 	}
+	// 비교 문자가 null 문자일 경우 문자열의 끝 위치 반환
 	if (cmp == 0)
 		return ((char *)s);
 	return (loc);

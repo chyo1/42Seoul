@@ -23,6 +23,7 @@ static unsigned int	get_word_cnt(const char *str, char c)
 	{
 		if (str[idx] != c)
 		{
+			// 단어의 개수를 세고, 단어가 아닐 때까지 idx 밀기
 			cnt_word++;
 			while (str[idx] && str[idx] != c)
 				idx++;
@@ -61,6 +62,8 @@ static int	fill_ans(char **ans, const char *str, char c)
 			s = idx;
 			while (str[idx] && str[idx] != c)
 				idx++;
+			
+			// 할당 오류시 오류난 위치 반환
 			ans[ans_idx] = (char *)malloc(sizeof(char) * (idx - s + 1));
 			if (ans[ans_idx] == NULL)
 				return (ans_idx);

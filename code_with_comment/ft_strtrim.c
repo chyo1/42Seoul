@@ -56,9 +56,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	unsigned int	len;
 
 	len = ft_strlen(s1);
+	// 앞에서부터 잘라야 하는 부분 찾기
 	start = get_start(s1, set, len);
+
+	// s1이 빈 문자열이거나, s1의 모든 문자열을 잘라야 할 때
 	if (s1[0] == '\0' || start == len)
 		return ((char *)ft_calloc(1, sizeof(char)));
+	
+	// 뒤에서부터 잘라야 하는 부분 찾기
 	end = get_end(s1, set, len - 1);
 	str = (char *)malloc(sizeof(char) * (end - start + 2));
 	if (str == NULL)

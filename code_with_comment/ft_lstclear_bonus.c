@@ -14,8 +14,8 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*node_next;
-	t_list	*node_free;
+	t_list	*node_free; // free할 node 가리킴
+	t_list	*node_next; // free할 node의 다음 노드 가리킴
 
 	node_next = *lst;
 	while (node_next)

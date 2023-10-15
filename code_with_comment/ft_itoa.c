@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// int 형으로 들어온 숫자를 문자형으로 바꿔 반환
 static void	change_i_to_c(char *str, long long n)
 {
 	int				minus;
@@ -22,6 +22,7 @@ static void	change_i_to_c(char *str, long long n)
 	if (n < 0)
 	{
 		minus = 1;
+		// n이 long long으로 들어와서 int형 최솟값도 양수로 변환 가능
 		n = -n;
 	}
 	else if (n == 0)
@@ -34,12 +35,13 @@ static void	change_i_to_c(char *str, long long n)
 	if (minus)
 		str[idx++] = '-';
 }
-
+// 입력받은 숫자의 자릿수 세기
 static unsigned int	get_len(int n)
 {
 	unsigned int	idx;
 
 	idx = 0;
+	// n이 음수일 때 -문자 추가, 0일때 while문 실행 안 되므로 1자리씩 추가
 	if (n <= 0)
 		idx = 1;
 	while (n != 0)
@@ -49,7 +51,7 @@ static unsigned int	get_len(int n)
 	}
 	return (idx);
 }
-
+// 들어온 숫자의 순서를 거꾸로 바꿈 ex) 4321 -> 1234
 static void	str_swap(char *ans, unsigned int len)
 {
 	unsigned int	idx;

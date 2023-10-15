@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// count * size만큼 malloc 해준 후 해당 영역을 null 문자로 채움
 void	*ft_calloc(size_t count, size_t size)
 {
 	char	*c;

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+// node 하나 삭제
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	del(lst->content);
