@@ -1,0 +1,23 @@
+int error(char c, int cnt, int plus, int blank)
+{
+	if (c == ' ')
+		{
+			if (blank)
+				return (0);
+			blank = 1;
+		}
+		else if (c == '+')
+		{
+			if (plus)
+				return (0);
+			plus = 1;
+		}
+		else if ('1' <= c && c <= '9')
+		{
+			if (!blank)
+				return (0);
+			cnt++;
+			blank = 0;
+			plus = 0;
+		}
+}
