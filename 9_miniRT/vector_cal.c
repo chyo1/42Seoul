@@ -1,0 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vector_cal.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyowchoi <hyowchoi@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/15 21:03:23 by hyowchoi          #+#    #+#             */
+/*   Updated: 2024/03/15 21:03:47 by hyowchoi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "vector.h"
+
+t_vec	vec_plus(t_vec a, t_vec b)
+{
+	t_vec	ret;
+
+	ret.x = a.x + b.x;
+	ret.y = a.y + b.y;
+	ret.z = a.z + b.z;
+	return (ret);
+}
+
+t_vec	vec_sub(t_vec a, t_vec b)
+{
+	t_vec	ret;
+
+	ret.x = a.x - b.x;
+	ret.y = a.y - b.y;
+	ret.z = a.z - b.z;
+	return (ret);
+}
+
+double	vec_dot(t_vec a, t_vec b)
+{
+	return (a.x * b.x + a.y * b.y + a.z * b.z);
+}
+
+t_vec	vec_cross(t_vec a, t_vec b)
+{
+	t_vec	ret;
+
+	ret.x = a.y * b.z - a.z * b.y;
+	ret.y = a.z * b.x - a.x * b.z;
+	ret.z = a.x * b.y - a.y * b.x;
+	return (ret);
+}
+
+t_vec	vec_vec_mul(t_vec a, t_vec b)
+{
+	t_vec	ret;
+
+	ret.x = a.x * b.x;
+	ret.y = a.y * b.y;
+	ret.z = a.z * b.z;
+	return (ret);
+}

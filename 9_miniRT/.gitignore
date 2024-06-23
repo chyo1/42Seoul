@@ -1,0 +1,12 @@
+.*
+!.gitignore
+debug*
+miniRT
+in
+*.o
+*.a
+*.dSYM
+*.rt
+*.xpm
+*.png
+*.jpeg

@@ -1,0 +1,7 @@
+LAST*
+*.dSYM/
+debug
+philo
+.vscode/
+*.txt
+a*

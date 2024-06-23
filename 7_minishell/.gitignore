@@ -1,0 +1,15 @@
+*.o
+**/*.o
+**/*.a
+.DS_Store
+bonus
+*.swp
+LAST_BONUS
+*.dSYM/
+*.out
+.vscode/
+outfile
+minishell_tester/
+minishell
+minishell_bonus
+debug
