@@ -2,7 +2,7 @@ RM = rm -f
 CXX = c++
 NAME = megaphone
 SRC = Megaphone.cpp
-SRC_OBJ = Megaphone.o
+SRC_OBJ = Megaphone.o main.o
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)

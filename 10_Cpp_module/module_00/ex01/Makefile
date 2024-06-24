@@ -2,7 +2,7 @@ RM = rm -f
 CXX = c++
 NAME = phonebook
 SRC = PhoneBook.cpp Contact.cpp main.cpp
-SRC_OBJ = PhoneBook.o Contact.o
+SRC_OBJ = PhoneBook.o Contact.o main.o
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
