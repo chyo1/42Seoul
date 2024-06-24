@@ -1,20 +1,20 @@
 RM = rm -f
 CXX = c++
 NAME = phonebook
-SRC = PhoneBook.cpp Contact.cpp main.cpp
-SRC_OBJ = PhoneBook.o Contact.o main.o
+SRCS = PhoneBook.cpp Contact.cpp main.cpp
+OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(SRC_OBJ)
-		$(CXX) $(CFLAGS) -o $@ $(SRC)
+$(NAME): $(OBJS)
+		$(CXX) $(CFLAGS) -o $@ $(SRCS)
 
 %.o : %.cpp
 	$(CXX) $(CFLAGS) -c $^ -o $@ -I./
 
 clean:
-	rm -f $(SRC_OBJ)
+	rm -f $(OBJS)
 
 fclean: 
 	make clean

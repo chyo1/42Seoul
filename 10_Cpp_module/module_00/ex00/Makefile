@@ -1,20 +1,20 @@
 RM = rm -f
 CXX = c++
 NAME = megaphone
-SRC = Megaphone.cpp
-SRC_OBJ = Megaphone.o main.o
+SRCS = Megaphone.cpp
+OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(SRC_OBJ)
-		$(CXX) $(CFLAGS) -o $@ $(SRC)
+$(NAME): $(OBJS)
+		$(CXX) $(CFLAGS) -o $@ $(SRCS)
 
 %.o : %.cpp
 	$(CXX) $(CFLAGS) -c $^ -o $@
 
 clean:
-	rm -f $(SRC_OBJ)
+	rm -f $(OBJS)
 
 fclean: 
 	make clean
