@@ -9,9 +9,10 @@ int main(int argc, char **argv) {
 
             for (size_t j = 0; j < str.size(); j++)
                 std::cout << (char)toupper(str[j]);
-            std::cout << std::endl;
         }
     } else {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
     }
+    std::cout << std::endl;
+    return 0;
 }
