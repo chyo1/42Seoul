@@ -62,12 +62,11 @@ void PhoneBook::SEARCH() {
     std::cout << "Enter index : ";
     if (!getCommand(idx))
         return;
-    if (idx.length() != 1 || idx[0] < '1' || idx[0] > '8') {
+    if (idx.length() != 1 || idx[0] < '1' || idx[0] > '8' || idx[0] - '0' > this->contactCount) {
         std::cout << "Invalid index" << std::endl;
         return;
     }
     int index = idx[0] - '0';
-    
     std::cout << std::endl << "Searching for contact with index " << index << std::endl << std::endl;
     std::cout << "     index|first name| last name|  nickname|" << std::endl;
     std::cout << "--------------------------------------------" << std::endl;
