@@ -13,6 +13,7 @@ Contact::Contact(int index, std::string firstName, std::string lastName, std::st
     this->secret = secret;
 }
 
+// 연락처 출력
 void Contact::display() {
     std::cout << std::setw(10) << this->index << "|";
     if (this->firstName.length() > 10) {
