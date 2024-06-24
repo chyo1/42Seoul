@@ -1,8 +1,8 @@
 RM = rm -f
 CXX = c++
-NAME = zombie
-SRCS = main.cpp Zombie.cpp zombieHorde.cpp
-OBJS = $(SRCS:.c=.o)
+NAME = weapon
+SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
