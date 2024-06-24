@@ -1,5 +1,19 @@
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <cstdlib>
+
+bool PhoneBook::getCommand(std::string &command) {
+    std::getline(std::cin, command);
+    if (std::cin.eof()) {
+        std::cout << "Entered signal" << std::endl;
+        EXIT();
+    }
+    if (command == "") {
+        std::cout << "Invalid input" << std::endl;
+        return false;
+    }
+    return true;
+}
 
 PhoneBook::PhoneBook() {
     this->contactCount = 0;
@@ -11,34 +25,21 @@ void PhoneBook::ADD() {
     std::string nickname;
     std::string secret;
 
-    // EOF 처리 printf, cin 둘 다 처리해줘야 댐
     std::cout << "Enter first name : ";
-    std::getline(std::cin, firstName);
-    if (firstName == "") {
-        std::cout << "Invalid input" << std::endl;
+    if (!getCommand(firstName))
         return;
-    }
 
     std::cout << "Enter last name : ";
-    std::getline(std::cin, lastName);
-    if (lastName == "") {
-        std::cout << "Invalid input" << std::endl;
+    if (!getCommand(lastName))
         return;
-    }
 
     std::cout << "Enter nickname : ";
-    std::getline(std::cin, nickname);
-    if (nickname == "") {
-        std::cout << "Invalid input" << std::endl;
+    if (!getCommand(nickname))
         return;
-    }
 
     std::cout << "Enter secret code : ";
-    std::getline(std::cin, secret);
-    if (secret == "") {
-        std::cout << "Invalid input" << std::endl;
+    if (!getCommand(secret))
         return;
-    }
 
     this->contacts[(this->contactCount) % 8] = Contact((this->contactCount) % 8 + 1, firstName, lastName, nickname, secret);
     this->contactCount++;
@@ -56,13 +57,16 @@ void PhoneBook::SEARCH() {
     for (int i = 0; i < end; i++) {
         this->contacts[i].display();
     }
-    int index;
+
+    std::string idx;
     std::cout << "Enter index : ";
-    std::cin >> index;
-    if (index < 1 || index > end) {
+    if (!getCommand(idx))
+        return;
+    if (idx.length() != 1 || idx[0] < '1' || idx[0] > '8') {
         std::cout << "Invalid index" << std::endl;
         return;
     }
+    int index = idx[0] - '0';
     
     std::cout << std::endl << "Searching for contact with index " << index << std::endl << std::endl;
     std::cout << "     index|first name| last name|  nickname|" << std::endl;
@@ -72,4 +76,5 @@ void PhoneBook::SEARCH() {
 
 void PhoneBook::EXIT() {
     std::cout << "Exit!" << std::endl;
+    exit(0);
 }

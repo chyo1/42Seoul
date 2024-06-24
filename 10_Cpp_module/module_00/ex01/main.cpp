@@ -6,12 +6,9 @@ int main() {
     std::string command;
 
     while (true) {
-        std::cout << "Enter a command (ADD/SEARCH/EXIT) : ";;
-        std::getline(std::cin, command);
-        if (std::cin.eof()) {
-            phoneBook.EXIT();
-            break;
-        }
+        std::cout << "Enter a command (ADD/SEARCH/EXIT) : ";
+        phoneBook.getCommand(command);
+
         if (command == "ADD") {
             phoneBook.ADD();
         } else if (command == "SEARCH") {

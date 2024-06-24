@@ -13,6 +13,7 @@ class PhoneBook {
         void ADD();
         void SEARCH();
         void EXIT();
+        bool getCommand(std::string &command);
 };
 
 #endif
