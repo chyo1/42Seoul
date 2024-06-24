@@ -45,6 +45,10 @@ void PhoneBook::ADD() {
 }
 
 void PhoneBook::SEARCH() {
+    if (this->contactCount == 0) {
+        std::cout << "There are no contacts :-(" << std::endl;
+        return;
+    }
     std::cout << std::endl << "     index|first name| last name|  nickname|" << std::endl;
     std::cout << "--------------------------------------------" << std::endl;
     
@@ -53,7 +57,7 @@ void PhoneBook::SEARCH() {
         this->contacts[i].display();
     }
     int index;
-    std::cout << "enter index : ";
+    std::cout << "Enter index : ";
     std::cin >> index;
     if (index < 1 || index > end) {
         std::cout << "Invalid index" << std::endl;

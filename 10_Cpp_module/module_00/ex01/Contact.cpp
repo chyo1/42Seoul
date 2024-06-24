@@ -30,5 +30,5 @@ void Contact::display() {
     } else {
         std::cout << std::setw(10) << this->nickname << "|";
     }
-    std::cout << std::endl;
+    std::cout << std::endl << std::endl;
 }
