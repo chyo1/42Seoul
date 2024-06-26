@@ -4,9 +4,6 @@
 #include <string>
 
 class Harl {
-    private:
-
-
     public:
         void debug();
         void info();
