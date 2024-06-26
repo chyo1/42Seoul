@@ -1,7 +1,7 @@
 RM = rm -f
 CXX = c++
-NAME = harl
-SRCS = main.cpp Harl.cpp
+NAME = fixed
+SRCS = main.cpp Fixed.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
