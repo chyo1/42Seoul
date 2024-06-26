@@ -41,11 +41,29 @@ Fixed::~Fixed() {
     std::cout << "Destructor called" << std::endl;
 }
 
+/* --------------------------------------------------------------- */
 int Fixed::getRawBits(void) const {
-    std::cout << "getRawBits member function called" << std::endl;
+    // std::cout << "getRawBits member function called" << std::endl;
     return this->fixedPointValue;
 }
 
 void Fixed::setRawBits(int const raw) {
     this->fixedPointValue = raw;
+}
+
+int Fixed::toInt(void) const {
+    return this->fixedPointValue >> fractionalBits;
+}
+
+float Fixed::toFloat(void) const {
+    return (float)this->fixedPointValue / (1 << fractionalBits);
+    // 1 >> fractionalBits 로 하면 0이 나옴
+}
+
+/* << 연산자 오버로딩 함수
+   특정 클래스의 객체를 출력할 때 원하는 형식으로 출력할 수 있도록 하는 방법
+*/
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
+    os << fixed.toFloat();
+    return os;
 }
