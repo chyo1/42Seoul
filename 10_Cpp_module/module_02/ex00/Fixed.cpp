@@ -1,5 +1,4 @@
 #include "Fixed.hpp"
-#include <iostream>
 
 // Default constructor
 Fixed::Fixed() : fixedPointValue(0) {
