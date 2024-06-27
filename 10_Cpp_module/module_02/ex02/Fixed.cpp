@@ -2,24 +2,24 @@
 
 // Default constructor
 Fixed::Fixed() : fixedPointValue(0) {
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
 }
 
 // Constructor with int parameter
 Fixed::Fixed(const int value) {
-    std::cout << "Int constructor called" << std::endl;
+    // std::cout << "Int constructor called" << std::endl;
     this->fixedPointValue = value << fractionalBits;
 }
 
 // Constructor with float parameter
 Fixed::Fixed(const float value) {
-    std::cout << "Float constructor called" << std::endl;
+    // std::cout << "Float constructor called" << std::endl;
     this->fixedPointValue = roundf(value * (1 << fractionalBits));
 }
 
 // Copy constructor
 Fixed::Fixed(const Fixed &fixed) {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
     *this = fixed;
     /* * 붙이는 이유? -> this가 Fixed* type 포인터이기 때문에
     *this : 이 포인터가 가리키는 실제 객체를 의미
@@ -30,7 +30,7 @@ Fixed::Fixed(const Fixed &fixed) {
 
 // Copy assignment operator
 Fixed &Fixed::operator=(const Fixed &fixed) {
-    std::cout << "Copy assignment operator called" << std::endl;
+    // std::cout << "Copy assignment operator called" << std::endl;
     if (this != &fixed)
         setRawBits(fixed.getRawBits());
     return *this;
@@ -38,7 +38,7 @@ Fixed &Fixed::operator=(const Fixed &fixed) {
 
 // Destructor
 Fixed::~Fixed() {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 /* --------------------------------------------------------------- */
@@ -140,6 +140,7 @@ const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
 Fixed &Fixed::max(Fixed &a, Fixed &b){
     return a.getRawBits() > b.getRawBits() ? a : b;
 }
+
 
 const Fixed &Fixed::max(const Fixed &a, const Fixed &b){
     return a.getRawBits() > b.getRawBits() ? a : b;
