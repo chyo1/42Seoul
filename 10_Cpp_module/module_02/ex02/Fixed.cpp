@@ -60,10 +60,95 @@ float Fixed::toFloat(void) const {
     // 1 >> fractionalBits 로 하면 0이 나옴
 }
 
-/* << 연산자 오버로딩 함수
-   특정 클래스의 객체를 출력할 때 원하는 형식으로 출력할 수 있도록 하는 방법
-*/
+
+/* --------------------------------------------------------------- */
+// 비교 연산자 오버로딩
+bool Fixed::operator>(const Fixed &fixed){
+    return fixedPointValue > fixed.getRawBits();
+}
+
+bool Fixed::operator<(const Fixed &fixed) {
+    return fixedPointValue < fixed.getRawBits();
+}
+bool Fixed::operator>=(const Fixed &fixed) {
+    return fixedPointValue >= fixed.getRawBits();
+}
+bool Fixed::operator<=(const Fixed &fixed){
+    return fixedPointValue <= fixed.getRawBits();
+}
+bool Fixed::operator==(const Fixed &fixed){
+    return fixedPointValue == fixed.getRawBits();
+}
+bool Fixed::operator!=(const Fixed &fixed){
+    return fixedPointValue != fixed.getRawBits();
+}
+
+/* --------------------------------------------------------------- */
+// 산술 연산자 오버로딩
+Fixed &Fixed::operator+(const Fixed &fixed){
+    fixedPointValue += fixed.getRawBits();
+    return *this;
+}
+Fixed &Fixed::operator-(const Fixed &fixed){
+    fixedPointValue -= fixed.getRawBits();
+    return *this;
+}
+Fixed &Fixed::operator*(const Fixed &fixed){
+    fixedPointValue = (fixedPointValue * fixed.getRawBits()) >> fractionalBits;
+    return *this;
+}
+Fixed &Fixed::operator/(const Fixed &fixed){
+    // division by 0
+    fixedPointValue = (fixedPointValue << fractionalBits) / fixed.getRawBits();
+    return *this;
+}
+
+/* --------------------------------------------------------------- */
+// 전위 증감 연산자 오버로딩
+Fixed &Fixed::operator++(void) {
+    fixedPointValue++;
+    return *this;
+}
+
+Fixed &Fixed::operator--(void){
+    fixedPointValue--;
+    return *this;
+}
+
+// 후위 증감 연산자 오버로딩
+Fixed Fixed::operator++(int){
+    Fixed tmp(*this);
+    fixedPointValue++;
+    return tmp;
+}
+
+Fixed Fixed::operator--(int){
+    Fixed tmp(*this);
+    fixedPointValue--;
+    return tmp;
+}
+
+/* --------------------------------------------------------------- */
+// min, max 비교
+Fixed &Fixed::min(Fixed &a, Fixed &b){
+    return a.getRawBits() < b.getRawBits() ? a : b;
+}
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
+    return a.getRawBits() < b.getRawBits() ? a : b;
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b){
+    return a.getRawBits() > b.getRawBits() ? a : b;
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b){
+    return a.getRawBits() > b.getRawBits() ? a : b;
+}
+
+/* --------------------------------------------------------------- */
+
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
     os << fixed.toFloat();
     return os;
 }
+
