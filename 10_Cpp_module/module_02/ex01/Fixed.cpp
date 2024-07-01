@@ -14,7 +14,7 @@ Fixed::Fixed(const int value) {
 // Constructor with float parameter
 Fixed::Fixed(const float value) {
     std::cout << "Float constructor called" << std::endl;
-    this->fixedPointValue = roundf(value * (1 << fractionalBits));
+    this->fixedPointValue = roundf(value * (1 << fractionalBits)); // roundf 바꾸기
 }
 
 // Copy constructor
