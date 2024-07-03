@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
             std::string str = argv[i];
 
             for (size_t j = 0; j < str.size(); j++)
-                std::cout << (char)toupper(str[j]);
+                std::cout << static_cast<char>(toupper(str[j]));
         }
     } else {
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
