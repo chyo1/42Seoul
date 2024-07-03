@@ -29,6 +29,7 @@ void PhoneBook::ADD() {
     std::string firstName;
     std::string lastName;
     std::string nickname;
+    std::string phoneNumber;
     std::string secret;
 
     std::cout << "Enter first name : ";
@@ -43,12 +44,23 @@ void PhoneBook::ADD() {
     if (!getCommand(nickname))
         return;
 
+    std::cout << "Enter phone number : ";
+    if (!getCommand(phoneNumber))
+        return;
+    
+    for (size_t i = 0; i < phoneNumber.size(); i++) {
+        if(!isnumber(static_cast<char>((phoneNumber[i])))) {
+            std::cout << "enter only number" << std::endl;
+            return;
+        }
+    }
+
     std::cout << "Enter secret code : ";
     if (!getCommand(secret))
         return;
 
     // 연락처 저장
-    this->contacts[(this->contactCount) % 8] = Contact((this->contactCount) % 8 + 1, firstName, lastName, nickname, secret);
+    this->contacts[(this->contactCount) % 8] = Contact((this->contactCount) % 8 + 1, firstName, lastName, nickname, phoneNumber, secret);
     this->contactCount++;
 }
 
@@ -61,11 +73,11 @@ void PhoneBook::SEARCH() {
     }
 
     // 연락처 출력
-    std::cout << std::endl << "     index|first name| last name|  nickname|" << std::endl;
-    std::cout << "--------------------------------------------" << std::endl;
+    std::cout << "-------------------------------------------------------" << std::endl;
     int end = this->contactCount > 8 ? 8 : this->contactCount;
     for (int i = 0; i < end; i++) {
         this->contacts[i].display();
+        std::cout << std::endl;
     }
 
     // 연락처 선택
@@ -83,9 +95,10 @@ void PhoneBook::SEARCH() {
     // 선택한 연락처 출력
     int index = idx[0] - '0';
     std::cout << std::endl << "Searching for contact with index " << index << std::endl << std::endl;
-    std::cout << "     index|first name| last name|  nickname|" << std::endl;
-    std::cout << "--------------------------------------------" << std::endl;
-    this->contacts[index - 1].display();
+    std::cout << std::endl << "     index|first name| last name|  nickname|  phoneNum|     secret" << std::endl;
+    std::cout << "------------------------------------------------------------------" << std::endl;
+
+    this->contacts[index - 1].displayDetail();
 }
 
 void PhoneBook::EXIT() {

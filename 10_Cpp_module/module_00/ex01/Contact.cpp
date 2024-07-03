@@ -5,11 +5,12 @@
 Contact::Contact() {
 }
 
-Contact::Contact(int index, std::string firstName, std::string lastName, std::string nickname, std::string secret) {
+Contact::Contact(int index, std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string secret) {
     this->index = index;
     this->firstName = firstName;
     this->lastName = lastName;
     this->nickname = nickname;
+    this->phoneNumber = phoneNumber;
     this->secret = secret;
 }
 
@@ -31,5 +32,19 @@ void Contact::display() {
     } else {
         std::cout << std::setw(10) << this->nickname << "|";
     }
-    std::cout << std::endl << std::endl;
+    if (this->phoneNumber.length() > 10) {
+        std::cout << this->phoneNumber.substr(0, 9) << ".|";
+    } else {
+        std::cout << std::setw(10) << this->phoneNumber << "|";
+    }
+}
+
+void Contact::displayDetail() {
+    display();
+     if (this->secret.length() > 10) {
+        std::cout << this->secret.substr(0, 9) << ".|";
+    } else {
+        std::cout << std::setw(10) << this->secret << "|";
+    }
+    std::cout << std::endl;
 }
