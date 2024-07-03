@@ -13,13 +13,13 @@ ClapTrap::ClapTrap(ClapTrap const & src) {
     *this = src;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &fixed) {
+ClapTrap &ClapTrap::operator=(const ClapTrap &clapTrap) {
     std::cout << "ClapTrap assignation operator" << std::endl;
-    if (this != &fixed) {
-        this->name = fixed.name;
-        this->hitPoints = fixed.hitPoints;
-        this->energyPoints = fixed.energyPoints;
-        this->attackDamage = fixed.attackDamage;
+    if (this != &clapTrap) {
+        this->name = clapTrap.name;
+        this->hitPoints = clapTrap.hitPoints;
+        this->energyPoints = clapTrap.energyPoints;
+        this->attackDamage = clapTrap.attackDamage;
     }
     return *this;
 }
