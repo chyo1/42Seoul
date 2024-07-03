@@ -73,6 +73,7 @@ void PhoneBook::SEARCH() {
     }
 
     // 연락처 출력
+    std::cout << std::endl << "     index|first name| last name|  nickname|  phoneNum|" << std::endl;
     std::cout << "-------------------------------------------------------" << std::endl;
     int end = this->contactCount > 8 ? 8 : this->contactCount;
     for (int i = 0; i < end; i++) {
