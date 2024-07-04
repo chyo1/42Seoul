@@ -1,7 +1,7 @@
 RM = rm -f
 CXX = c++
 NAME = exec
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 

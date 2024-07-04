@@ -7,8 +7,8 @@ class Animal {
     public:
         Animal();
         Animal(std::string type);
-        virtual ~Animal();
-        virtual void makeSound() const;
+        ~Animal();
+        void makeSound() const;
         Animal &operator=(const Animal &animal);
         std::string getType() const;
 
