@@ -37,7 +37,6 @@ void fileController::replaceSubstrings() {
         replaceSubstring(pos, fileContents, str.length(), newStr);
         pos += newStr.length();
     }
-    std::cout << fileContents << std::endl;
 }
 
 bool fileController::writeFile() {
