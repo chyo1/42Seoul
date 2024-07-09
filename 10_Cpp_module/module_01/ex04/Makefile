@@ -1,7 +1,7 @@
 RM = rm -f
 CXX = c++
 NAME = sed
-SRCS = main.cpp
+SRCS = main.cpp fileController.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
