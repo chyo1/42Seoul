@@ -4,14 +4,14 @@
 #include <string>
 
 class Brain {
-    public:
-        Brain();
-        ~Brain();
-        std::string identify() const;
-    
     private:
         std::string ideas[100];
 
+    public:
+        Brain();
+        ~Brain();
+        Brain(const Brain &brain);
+        Brain &operator=(const Brain &brain);
 };
 
 
