@@ -11,6 +11,10 @@ Animal &Animal::operator=(const Animal &animal) {
     return *this;
 }
 
+Animal::Animal(const Animal &animal) {
+    *this = animal;
+}
+
 void Animal::makeSound() const {
     std::cout << "Animal sound" << std::endl;
 }

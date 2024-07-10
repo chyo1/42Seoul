@@ -11,6 +11,10 @@ Cat &Cat::operator=(const Cat &cat) {
     return *this;
 }
 
+Cat::Cat(const Cat &cat) {
+    *this = cat;
+}
+
 void Cat::makeSound() const {
     std::cout << "Meowww" << std::endl;
 }

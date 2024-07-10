@@ -12,6 +12,10 @@ Dog &Dog::operator=(const Dog &dog) {
     return *this;
 }
 
+Dog::Dog(const Dog &dog) {
+    *this = dog;
+}
+
 void Dog::makeSound() const {
     std::cout << "Woooof" << std::endl;
 }

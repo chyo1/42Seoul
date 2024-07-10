@@ -10,6 +10,7 @@ class Dog : public Animal {
         Dog(std::string type);
         ~Dog();
         Dog &operator=(const Dog &dog);
+        Dog(const Dog &dog);
         void makeSound() const;
         std::string getType() const;
 };
