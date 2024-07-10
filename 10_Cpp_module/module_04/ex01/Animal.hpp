@@ -8,8 +8,9 @@ class Animal {
         Animal();
         Animal(std::string type);
         ~Animal();
-        void makeSound() const;
+        Animal(const Animal &animal);
         Animal &operator=(const Animal &animal);
+        void makeSound() const;
         std::string getType() const;
 
     protected:

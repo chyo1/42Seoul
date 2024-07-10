@@ -13,6 +13,10 @@ Animal::~Animal() {
     std::cout << "Animal destructor called" << std::endl;
 }
 
+Animal::Animal(const Animal &animal) {
+    *this = animal;
+}
+
 Animal &Animal::operator=(const Animal &animal) {
     this->type = animal.type;
     return *this;

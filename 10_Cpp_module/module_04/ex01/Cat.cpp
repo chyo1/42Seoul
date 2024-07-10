@@ -8,11 +8,16 @@ Cat::Cat() : Animal("Cat") {
 
 Cat::Cat(std::string type) : Animal(type) {
     std::cout << "Cat type constructor called" << std::endl;
+    Brain *brain = new Brain();
 }
 
 Cat::~Cat() {
     std::cout << "Cat destructor called" << std::endl;
     delete this->brain;
+}
+
+Cat::Cat(const Cat &cat) {
+    *this = cat;
 }
 
 Cat &Cat::operator=(const Cat &cat) {

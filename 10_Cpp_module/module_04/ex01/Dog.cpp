@@ -9,11 +9,16 @@ Dog::Dog() : Animal("Dog") {
 
 Dog::Dog(std::string type) : Animal(type) {
     std::cout << "Dog type constructor called" << std::endl;
+    Brain *brain = new Brain();
 }
 
 Dog::~Dog() {
     std::cout << "Dog destructor called" << std::endl;
     delete this->brain;
+}
+
+Dog::Dog(const Dog &dog) {
+    *this = dog;
 }
 
 Dog &Dog::operator=(const Dog &dog) {
