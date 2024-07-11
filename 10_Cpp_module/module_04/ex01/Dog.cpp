@@ -4,12 +4,12 @@
 
 Dog::Dog() : Animal("Dog") {
     std::cout << "Dog default constructor called" << std::endl;
-    Brain *brain = new Brain();
+    brain = new Brain();
 }
 
 Dog::Dog(std::string type) : Animal(type) {
     std::cout << "Dog type constructor called" << std::endl;
-    Brain *brain = new Brain();
+    brain = new Brain();
 }
 
 Dog::~Dog() {
@@ -19,6 +19,7 @@ Dog::~Dog() {
 
 Dog::Dog(const Dog &dog) {
     *this = dog;
+    brain = new Brain(*dog.brain);
 }
 
 Dog &Dog::operator=(const Dog &dog) {
@@ -33,4 +34,12 @@ void Dog::makeSound() const {
 
 std::string Dog::getType() const {
     return this->type;
+}
+
+void Dog::setBrain(std::string str) {
+    brain->setIdea(str);
+}
+
+void Dog::getBrain() const {
+    brain->getIdeas();
 }
