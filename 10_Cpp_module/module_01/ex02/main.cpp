@@ -12,8 +12,8 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "The value of the string variable" << std::endl;
-    std::cout << "value of stringPTR : " << stringPTR << std::endl;
-    std::cout << "value of stringREF : " << &stringREF << std::endl;
+    std::cout << "value of stringPTR : " << *stringPTR << std::endl;
+    std::cout << "value of stringREF : " << stringREF << std::endl;
 
     return 0;
 }

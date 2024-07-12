@@ -8,10 +8,6 @@
 
 class fileController {
     private:
-        // std::string inputFileName;
-        // std::string outputFileName;
-        // std::string str1;
-        // std::string str2;
         char* inputFileName;
         std::string outputFileName;
         std::string str;
