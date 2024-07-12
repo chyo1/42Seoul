@@ -1,7 +1,7 @@
 RM = rm -f
 CXX = c++
 NAME = zombie
-SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRCS = main.cpp Zombie.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
