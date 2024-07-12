@@ -56,7 +56,7 @@ int Fixed::toInt(void) const {
 }
 
 float Fixed::toFloat(void) const {
-    return (float)this->fixedPointValue / (1 << fractionalBits);
+    return static_cast<float>(this->fixedPointValue) / (1 << fractionalBits);
     // 1 >> fractionalBits 로 하면 0이 나옴
 }
 
@@ -66,7 +66,6 @@ float Fixed::toFloat(void) const {
 bool Fixed::operator>(const Fixed &fixed){
     return fixedPointValue > fixed.getRawBits();
 }
-
 bool Fixed::operator<(const Fixed &fixed) {
     return fixedPointValue < fixed.getRawBits();
 }
@@ -94,12 +93,18 @@ Fixed &Fixed::operator-(const Fixed &fixed){
     return *this;
 }
 Fixed &Fixed::operator*(const Fixed &fixed){
-    fixedPointValue = (fixedPointValue * fixed.getRawBits()) >> fractionalBits;
+    // fixedPointValue = (fixedPointValue * fixed.getRawBits()) >> fractionalBits;
+    fixedPointValue = (fixedPointValue * fixed.getRawBits()) / (1 << fractionalBits);
     return *this;
 }
 Fixed &Fixed::operator/(const Fixed &fixed){
     // division by 0
-    fixedPointValue = (fixedPointValue << fractionalBits) / fixed.getRawBits();
+    if (fixed.getRawBits() == 0) {
+        std::cout << "Division by 0" << std::endl;
+        return *this;
+    }
+    // fixedPointValue = (fixedPointValue << fractionalBits) / fixed.getRawBits();
+    fixedPointValue = (fixedPointValue * (1 << fractionalBits)) / fixed.getRawBits();
     return *this;
 }
 
@@ -140,7 +145,6 @@ const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
 Fixed &Fixed::max(Fixed &a, Fixed &b){
     return a.getRawBits() > b.getRawBits() ? a : b;
 }
-
 
 const Fixed &Fixed::max(const Fixed &a, const Fixed &b){
     return a.getRawBits() > b.getRawBits() ? a : b;

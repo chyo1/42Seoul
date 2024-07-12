@@ -56,7 +56,7 @@ int Fixed::toInt(void) const {
 }
 
 float Fixed::toFloat(void) const {
-    return (float)this->fixedPointValue / (1 << fractionalBits);
+    return static_cast<float>(this->fixedPointValue) / (1 << fractionalBits);
     // 1 >> fractionalBits 로 하면 0이 나옴
 }
 
