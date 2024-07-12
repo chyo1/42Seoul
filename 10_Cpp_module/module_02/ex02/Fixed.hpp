@@ -17,18 +17,18 @@ class Fixed {
         ~Fixed();
 
         // 비교 연산자 오버로딩
-        bool operator>(const Fixed &fixed);
-        bool operator<(const Fixed &fixed);
-        bool operator>=(const Fixed &fixed);
-        bool operator<=(const Fixed &fixed);
-        bool operator==(const Fixed &fixed);
-        bool operator!=(const Fixed &fixed);
+        bool operator>(const Fixed &fixed) const;
+        bool operator<(const Fixed &fixed) const;
+        bool operator>=(const Fixed &fixed) const;
+        bool operator<=(const Fixed &fixed) const;
+        bool operator==(const Fixed &fixed) const;
+        bool operator!=(const Fixed &fixed) const;
 
         // 산술 연산자 오버로딩
-        Fixed &operator+(const Fixed &fixed);
-        Fixed &operator-(const Fixed &fixed);
-        Fixed &operator*(const Fixed &fixed);
-        Fixed &operator/(const Fixed &fixed);
+        Fixed operator+(const Fixed &fixed) const;
+        Fixed operator-(const Fixed &fixed) const;
+        Fixed operator*(const Fixed &fixed) const;
+        Fixed operator/(const Fixed &fixed) const;
 
         // 전위 증감 연산자 오버로딩
         Fixed &operator++(void);

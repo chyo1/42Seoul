@@ -14,7 +14,7 @@ class Fixed {
         Fixed &operator=(const Fixed &fixed);
         ~Fixed();
 
-        int getRawBits(void) const; // const : 함수 내에서 멤버 변수 변경 불가
+        int getRawBits(void) const; // const : 함수 내에서 멤버 변수 변경 불가, this 포인터가 가리키는 객체의 상태 변경을 금지
         void setRawBits(int const raw);
 };
 

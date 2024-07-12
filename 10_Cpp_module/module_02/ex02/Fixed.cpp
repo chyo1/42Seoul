@@ -63,49 +63,43 @@ float Fixed::toFloat(void) const {
 
 /* --------------------------------------------------------------- */
 // 비교 연산자 오버로딩
-bool Fixed::operator>(const Fixed &fixed){
+bool Fixed::operator>(const Fixed &fixed) const{
     return fixedPointValue > fixed.getRawBits();
 }
-bool Fixed::operator<(const Fixed &fixed) {
+bool Fixed::operator<(const Fixed &fixed) const{
     return fixedPointValue < fixed.getRawBits();
 }
-bool Fixed::operator>=(const Fixed &fixed) {
+bool Fixed::operator>=(const Fixed &fixed) const{
     return fixedPointValue >= fixed.getRawBits();
 }
-bool Fixed::operator<=(const Fixed &fixed){
+bool Fixed::operator<=(const Fixed &fixed) const{
     return fixedPointValue <= fixed.getRawBits();
 }
-bool Fixed::operator==(const Fixed &fixed){
+bool Fixed::operator==(const Fixed &fixed) const{
     return fixedPointValue == fixed.getRawBits();
 }
-bool Fixed::operator!=(const Fixed &fixed){
+bool Fixed::operator!=(const Fixed &fixed) const{
     return fixedPointValue != fixed.getRawBits();
 }
 
 /* --------------------------------------------------------------- */
 // 산술 연산자 오버로딩
-Fixed &Fixed::operator+(const Fixed &fixed){
-    fixedPointValue += fixed.getRawBits();
-    return *this;
+Fixed Fixed::operator+(const Fixed &fixed) const{
+    return Fixed(fixedPointValue + fixed.getRawBits());
 }
-Fixed &Fixed::operator-(const Fixed &fixed){
-    fixedPointValue -= fixed.getRawBits();
-    return *this;
+Fixed Fixed::operator-(const Fixed &fixed) const{
+    return Fixed(fixedPointValue - fixed.getRawBits());
 }
-Fixed &Fixed::operator*(const Fixed &fixed){
-    // fixedPointValue = (fixedPointValue * fixed.getRawBits()) >> fractionalBits;
-    fixedPointValue = (fixedPointValue * fixed.getRawBits()) / (1 << fractionalBits);
-    return *this;
+Fixed Fixed::operator*(const Fixed &fixed) const{
+    return Fixed(toFloat() * fixed.toFloat());
 }
-Fixed &Fixed::operator/(const Fixed &fixed){
+Fixed Fixed::operator/(const Fixed &fixed) const{
     // division by 0
     if (fixed.getRawBits() == 0) {
         std::cout << "Division by 0" << std::endl;
-        return *this;
+        return Fixed(fixedPointValue);
     }
-    // fixedPointValue = (fixedPointValue << fractionalBits) / fixed.getRawBits();
-    fixedPointValue = (fixedPointValue * (1 << fractionalBits)) / fixed.getRawBits();
-    return *this;
+    return Fixed(toFloat() / fixed.toFloat());
 }
 
 /* --------------------------------------------------------------- */
@@ -151,7 +145,6 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b){
 }
 
 /* --------------------------------------------------------------- */
-
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
     os << fixed.toFloat();
     return os;
