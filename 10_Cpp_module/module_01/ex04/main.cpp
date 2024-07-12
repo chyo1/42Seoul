@@ -8,6 +8,7 @@
 int main(int argc, char *argv[]) {
     if (argc != 4) {
         std::cout << "Enter 3 Parameters: filename, str1, str2" << std::endl;
+		return 0;
     }
 
     fileController fc(argv[1], argv[2], argv[3]);
