@@ -30,6 +30,8 @@ void Harl::complain(std::string level) {
     struct Level {
         std::string level;
         // 반환값, 매개변수가 없는 함수 포인터 선언
+        // func : 멤버 함수 포인터, Harl 클래스의 멤버 함수를 가리킴
+        // 반환 타입이 void이고 매개변수가 없는 Harl 크래스의 멤버 함수를 가리킴
         void (Harl::*func)();
     };
 

@@ -4,11 +4,13 @@
 #include <string>
 
 class Harl {
-    public:
+    private: 
         void debug();
         void info();
         void warning();
         void error();
+
+    public:
         void complain(std::string level);
 
 };
