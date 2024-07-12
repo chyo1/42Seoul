@@ -8,7 +8,7 @@ int main() {
 
     Zombie* zombie2 = newZombie("Zombie2");
     zombie2->announce();
-    delete zombie2; // in destroyer?
+    delete zombie2;
 
     randomChump("Zombie3");
 
