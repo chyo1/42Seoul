@@ -9,8 +9,10 @@ AMateria::AMateria(AMateria const& src) {
 }
 
 AMateria& AMateria::operator=(AMateria const& src) {
-
+	*this = src;
 }
+
+AMateria:: ~AMateria() {}
 
 std::string const& AMateria::getType() const {
     return _type;

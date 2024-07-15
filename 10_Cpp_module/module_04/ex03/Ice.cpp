@@ -7,7 +7,7 @@ Ice::Ice(Ice const & src) : AMateria(src) {}
 
 Ice::~Ice() {}
 
-Ice& Ice::operator=(Ice const & src) {
+Ice& Ice::operator=(Ice const& src) {
     this->_type = src._type;
     return *this;
 }

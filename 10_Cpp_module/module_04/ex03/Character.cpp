@@ -20,7 +20,7 @@ Character::~Character() {
 Character& Character::operator=(Character const & src) {
     _name = src._name;
     for (int i = 0; i < 4; i++)
-        _inventory[i] = new AMateria(&src._inventory[i]);
+        _inventory[i] = src._inventory[i];
     return *this;
 }
 
