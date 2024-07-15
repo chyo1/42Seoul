@@ -51,7 +51,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
         std::cout << "ClapTrap " << this->name << " is already at full health!" << std::endl;
         return;
     }
-     if (this->energyPoints == 0) {
+    if (this->energyPoints == 0) {
         std::cout << "ClapTrap " << this->name << " is out of energy!" << std::endl;
         return;
     }
