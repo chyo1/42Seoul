@@ -17,12 +17,19 @@ int main()
     dog->makeSound();
     animal->makeSound();
 
+	delete animal;
+	delete dog;
+	delete cat;
+	
     std::cout << "-----------Wrong Animal------------" << std::endl;
     const WrongAnimal* wrongAnimal = new WrongAnimal();
     const WrongAnimal* wrongCat = new WrongCat();
     std::cout << wrongCat->getType() << " " << std::endl;
     wrongCat->makeSound();
     wrongAnimal->makeSound();
-	atexit(f);
+
+	delete wrongAnimal;
+	delete wrongCat;
+
     return 0;
 }
