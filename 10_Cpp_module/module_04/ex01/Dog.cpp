@@ -2,14 +2,12 @@
 #include "Animal.hpp"
 #include <iostream>
 
-Dog::Dog() : Animal("Dog") {
+Dog::Dog() : Animal("Dog"), brain(new Brain()) {
     std::cout << "Dog default constructor called" << std::endl;
-    brain = new Brain();
 }
 
-Dog::Dog(std::string type) : Animal(type) {
+Dog::Dog(std::string type) : Animal(type), brain(new Brain()) {
     std::cout << "Dog type constructor called" << std::endl;
-    brain = new Brain();
 }
 
 Dog::~Dog() {
@@ -17,15 +15,14 @@ Dog::~Dog() {
     delete this->brain;
 }
 
-Dog::Dog(const Dog &dog) : Animal(dog.type) {
+Dog::Dog(const Dog &dog) : Animal(dog.type), brain(new Brain(*dog.brain)) {
 	std::cout << "Dog copy constructor called" << std::endl;
-	this->brain = new Brain(*dog.brain);
 }
 
 Dog &Dog::operator=(const Dog &dog) {
 	if (this != &dog) {
 		this->type = dog.type;
-		this->brain = new Brain(*dog.brain);
+		*this->brain = *dog.brain;
 	}
     return *this;
 }

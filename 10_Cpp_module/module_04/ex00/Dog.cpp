@@ -8,13 +8,11 @@ Dog::Dog(std::string type) : Animal(type) {}
 Dog::~Dog() {}
 
 Dog &Dog::operator=(const Dog &dog) {
-    this->type = dog.type;
+	Animal::operator=(dog);
     return *this;
 }
 
-Dog::Dog(const Dog &dog) : Animal(dog.type) {
-    *this = dog;
-}
+Dog::Dog(const Dog &dog) : Animal(dog) {}
 
 void Dog::makeSound() const {
     std::cout << "Woooof" << std::endl;

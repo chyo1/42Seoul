@@ -6,9 +6,8 @@ Cat::Cat() : Animal("Cat") {
     brain = new Brain();
 }
 
-Cat::Cat(std::string type) : Animal(type) {
+Cat::Cat(std::string type) : Animal(type), brain(new Brain()) {
     std::cout << "Cat type constructor called" << std::endl;
-    brain = new Brain();
 }
 
 Cat::~Cat() {
@@ -16,16 +15,15 @@ Cat::~Cat() {
     delete this->brain;
 }
 
-Cat::Cat(const Cat &cat) : Animal(cat.type) {
+Cat::Cat(const Cat &cat) : Animal(cat.type), brain(new Brain(*cat.brain)) {
 	std::cout << "Cat copy constructor called" << std::endl;
-    brain = new Brain(*cat.brain);
 }
 
 Cat &Cat::operator=(const Cat &cat) {
 	if (this == &cat)
 		return *this;
     this->type = cat.type;
-	this->brain = new Brain(*cat.brain);
+	*this->brain = *cat.brain;
     return *this;
 }
 
@@ -38,7 +36,7 @@ std::string Cat::getType() const {
 }
 
 void Cat::setBrain(std::string str) {
-    this->brain->setIdea(str);
+    brain->setIdea(str);
 }
 
 void Cat::getBrain() const {
