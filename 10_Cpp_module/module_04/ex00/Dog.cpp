@@ -12,7 +12,7 @@ Dog &Dog::operator=(const Dog &dog) {
     return *this;
 }
 
-Dog::Dog(const Dog &dog) {
+Dog::Dog(const Dog &dog) : Animal(dog.type) {
     *this = dog;
 }
 

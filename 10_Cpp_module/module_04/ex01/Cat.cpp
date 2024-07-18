@@ -16,7 +16,7 @@ Cat::~Cat() {
     delete this->brain;
 }
 
-Cat::Cat(const Cat &cat) {
+Cat::Cat(const Cat &cat) : Animal(cat.type) {
     *this = cat;
     brain = new Brain(*cat.brain); //
 }

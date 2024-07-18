@@ -8,9 +8,10 @@ class WrongCat : public WrongAnimal {
     public:
         WrongCat();
         WrongCat(std::string type);
-        ~WrongCat();
-        void makeSound() const;
         WrongCat &operator=(const WrongCat &WrongCat);
+        ~WrongCat();
+
+        void makeSound() const;
         std::string getType() const;
 };
 
