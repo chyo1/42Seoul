@@ -17,13 +17,15 @@ Cat::~Cat() {
 }
 
 Cat::Cat(const Cat &cat) : Animal(cat.type) {
-    *this = cat;
-    brain = new Brain(*cat.brain); //
+	std::cout << "Cat copy constructor called" << std::endl;
+    brain = new Brain(*cat.brain);
 }
 
 Cat &Cat::operator=(const Cat &cat) {
+	if (this == &cat)
+		return *this;
     this->type = cat.type;
-    this->brain = cat.brain;
+	this->brain = new Brain(*cat.brain);
     return *this;
 }
 

@@ -1,25 +1,27 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
-
+#define SIZE 2
+void f(){
+	system("leaks exec");
+}
 int main()
 {
-    Animal *animals[10];
-    for (int i = 0; i < 10; i++) {
-        if (i < 5)
+    Animal *animals[SIZE];
+    for (int i = 0; i < SIZE; i++) {
+        if (i < SIZE / 2)
             animals[i] = new Dog();
         else
             animals[i] = new Cat();
     }
     
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < SIZE; i++) {
         animals[i]->makeSound();
     }
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < SIZE; i++)
         delete animals[i];
 
-    /*---------------------------------*/
-    std::cout << "----------------------" << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
     Dog *dog = new Dog();
     dog->setBrain("I am a dog");
 
@@ -38,8 +40,9 @@ int main()
     cat->getBrain();
     cat2.getBrain();
 
-    delete dog;
     delete cat; //
+    delete dog;
+	// atexit(f);
     return 0;
 }
 

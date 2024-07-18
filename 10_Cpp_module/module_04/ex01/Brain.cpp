@@ -18,9 +18,10 @@ Brain &Brain::operator=(const Brain &brain) {
 }
 
 Brain::Brain(const Brain &brain) {
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < brain.idx; i++) {
         this->ideas[i] = brain.ideas[i];
     }
+	this->idx = brain.idx;
 }
 
 void Brain::setIdea(std::string idea) {
