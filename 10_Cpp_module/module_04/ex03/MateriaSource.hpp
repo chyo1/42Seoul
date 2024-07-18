@@ -6,6 +6,7 @@ class MateriaSource : public IMateriaSource{
     private:
         AMateria* _materias[4];
         int _idx;
+
     public:
         MateriaSource();
         MateriaSource(MateriaSource const& src);
