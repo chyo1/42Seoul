@@ -19,6 +19,7 @@ int main()
         delete animals[i];
 
     /*---------------------------------*/
+    std::cout << "----------------------" << std::endl;
     Dog *dog = new Dog();
     dog->setBrain("I am a dog");
 
@@ -27,7 +28,6 @@ int main()
 
     dog->getBrain();
     dog2.getBrain();
-
 
     Cat *cat = new Cat();
     cat->setBrain("I am a cat");
