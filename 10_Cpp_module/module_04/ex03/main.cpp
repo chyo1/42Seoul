@@ -6,6 +6,7 @@
 
 int main()
 {
+	atexit(f);
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
