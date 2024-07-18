@@ -11,6 +11,10 @@ int main(int argc, char *argv[]) {
 		return 0;
     }
 
+    if (argv[2] == "") {
+        std::cout << "str to find can't empty string" << std::endl;
+        return 0;
+    }
     fileController fc(argv[1], argv[2], argv[3]);
     if (fc.readFile())
         return 1;
