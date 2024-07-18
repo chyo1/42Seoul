@@ -2,9 +2,6 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-void f() {
-	system("leaks exec");
-}
 int main()
 {
     std::cout << "-----------Animal------------" << std::endl;
