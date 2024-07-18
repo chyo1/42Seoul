@@ -4,7 +4,6 @@
 #include "Animal.hpp"
 
 class Dog : public Animal {
-
     public:
         Dog();
         Dog(std::string type);
@@ -13,7 +12,6 @@ class Dog : public Animal {
         Dog(const Dog &dog);
         
         void makeSound() const;
-        std::string getType() const;
 };
 
 #endif

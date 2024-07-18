@@ -18,7 +18,3 @@ Cat::Cat(const Cat &cat) : Animal(cat.type) {
 void Cat::makeSound() const {
     std::cout << "Meowww" << std::endl;
 }
-
-std::string Cat::getType() const {
-    return this->type;
-}

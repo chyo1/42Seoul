@@ -2,6 +2,9 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
+void f() {
+	system("leaks exec");
+}
 int main()
 {
     std::cout << "-----------Animal------------" << std::endl;
@@ -20,6 +23,6 @@ int main()
     std::cout << wrongCat->getType() << " " << std::endl;
     wrongCat->makeSound();
     wrongAnimal->makeSound();
-
+	atexit(f);
     return 0;
 }
