@@ -3,8 +3,7 @@
 
 Cure::Cure() : AMateria("cure") {}
 
-// Cure::Cure(Cure const& src) : AMateria(src) {}
-Cure::Cure(Cure const& src){
+Cure::Cure(Cure const& src) : AMateria(src.getType()) {
     *this = src;
 }
 
