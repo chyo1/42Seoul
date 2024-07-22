@@ -3,7 +3,7 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-Form::Form() : _name("default"), _isSigned(false), _signGrade(1), _execGrade(1) {}
+Form::Form() : _name("default"), _isSigned(false), _signGrade(10), _execGrade(10) {}
 
 Form::Form(std::string name, int signGrade, int execGrade) : _name(name), _isSigned(false), _signGrade(signGrade), _execGrade(execGrade) {
     if (_signGrade < 1 || _execGrade < 1) {
