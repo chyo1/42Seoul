@@ -7,13 +7,11 @@ Cat::Cat(std::string type) : Animal(type) {}
 Cat::~Cat() {}
 
 Cat &Cat::operator=(const Cat &cat) {
-    this->type = cat.type;
+	Animal::operator=(cat);
     return *this;
 }
 
-Cat::Cat(const Cat &cat) : Animal(cat.type) {
-    *this = cat;
-}
+Cat::Cat(const Cat &cat) : Animal(cat) {}
 
 void Cat::makeSound() const {
     std::cout << "Meowww" << std::endl;

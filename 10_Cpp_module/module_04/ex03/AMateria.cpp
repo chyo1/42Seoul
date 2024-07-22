@@ -8,8 +8,8 @@ AMateria::AMateria(AMateria const& src) {
     *this = src;
 }
 
-AMateria& AMateria::operator=(AMateria const& src) {
-    this->_type = src._type; //
+AMateria& AMateria::operator=(AMateria const& src){
+    this->_type = src._type;
     return *this;
 }
 

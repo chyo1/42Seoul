@@ -1,9 +1,6 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
-#define SIZE 2
-void f(){
-	system("leaks exec");
-}
+#define SIZE 10
 int main()
 {
     Animal *animals[SIZE];
@@ -40,9 +37,9 @@ int main()
     cat->getBrain();
     cat2.getBrain();
 
-    delete cat; //
+    delete cat;
     delete dog;
-	// atexit(f);
+;
     return 0;
 }
 

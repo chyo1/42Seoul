@@ -13,11 +13,19 @@ Animal::~Animal() {
     std::cout << "Animal destructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &animal) {
-    *this = animal;
+Animal::Animal(const Animal &animal) : type(animal.getType()) {
+	std::cout << "Animal copy constructor called" << std::endl;
 }
 
 Animal &Animal::operator=(const Animal &animal) {
     this->type = animal.type;
     return *this;
+}
+
+void Animal::makeSound() const {
+    std::cout << "Animal sound" << std::endl;
+}
+
+std::string Animal::getType() const {
+    return this->type;
 }

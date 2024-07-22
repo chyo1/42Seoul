@@ -10,7 +10,9 @@ Ice::Ice(Ice const& src) : AMateria(src.getType()) {
 Ice::~Ice() {}
 
 Ice& Ice::operator=(Ice const& src) {
-    this->_type = src._type;
+    if (this != &src) {
+        AMateria::operator=(src);
+    }
     return *this;
 }
 

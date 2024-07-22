@@ -20,8 +20,16 @@ MateriaSource& MateriaSource::operator=(MateriaSource const& src) {
     return *this;
 }
 
+MateriaSource:: ~MateriaSource() {
+	for (int i = 0; i < 4; i++) {
+		if (_materias[i])
+			delete _materias[i];
+	}
+}
+
+
 void MateriaSource::learnMateria(AMateria* m) {
-    _materias[_idx] = m->clone();
+    _materias[_idx] = m;
     _idx = (_idx + 1) % 4;
 }
 

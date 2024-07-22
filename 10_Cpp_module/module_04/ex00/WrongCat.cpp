@@ -7,7 +7,7 @@ WrongCat::WrongCat(std::string type) : WrongAnimal(type) {}
 WrongCat::~WrongCat() {}
 
 WrongCat &WrongCat::operator=(const WrongCat &WrongCat) {
-    this->type = WrongCat.type;
+	WrongAnimal::operator=(WrongCat);
     return *this;
 }
 
