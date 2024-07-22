@@ -19,13 +19,19 @@ class Bureaucrat {
 
         class GradeTooHighException : public std::exception {
             public:
-                virtual const char* what() const throw();
+                virtual const char* what() const throw() {
+                    return "Grade is Too High";
+                }
         };
 
         class GradeTooLowException : public std::exception {
             public:
-                virtual const char* what() const throw();
+                virtual const char* what() const throw() {
+                    return "Grade is Too Low";
+                }
         };
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& src);
 
 #endif

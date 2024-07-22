@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include <iostream>
 
 Bureaucrat::Bureaucrat() : _name("default"), _grade(150) {}
 
@@ -7,7 +8,6 @@ Bureaucrat::Bureaucrat(std::string _name, int _grade) : _name(_name) {
         throw GradeTooHighException();
     else if (_grade > 150)
         throw GradeTooLowException();
-    
     this->_grade = _grade;
 }
 
@@ -31,4 +31,9 @@ std::string Bureaucrat::getName() const {
 
 int Bureaucrat::getGrade() const {
     return this->_grade;
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& src) {
+    os << src.getName() << "has grade " << src.getGrade() << std::endl;
+    return os;
 }
