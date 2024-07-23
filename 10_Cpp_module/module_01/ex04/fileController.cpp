@@ -1,13 +1,13 @@
-#include "fileController.hpp"
+#include "FileController.hpp"
 
-fileController::fileController(char* inputFileName, char* str1, char* str2) {
+FileController::FileController(char* inputFileName, char* str1, char* str2) {
     this->inputFileName = inputFileName;
     str = str1;
     newStr = str2;
 }
 
 // /*--------------파일 열어서 스트림에 담기------------*/
-bool fileController::readFile() {
+bool FileController::readFile() {
     std::ifstream openFile(this->inputFileName); // c++ 98?
 
     // 파일이 열림 -> 파일이 있음
@@ -29,7 +29,7 @@ bool fileController::readFile() {
 }
 
 /*--------------문자열 바꾸기------------*/
-void fileController::replaceSubstrings() {
+void FileController::replaceSubstrings() {
     
     // str1을 str2로 바꿈
     size_t pos = 0;
@@ -39,7 +39,7 @@ void fileController::replaceSubstrings() {
     }
 }
 
-bool fileController::writeFile() {
+bool FileController::writeFile() {
     outputFileName = (std::string)inputFileName + ".replace";
 
     std::ofstream outfile(outputFileName.c_str());
@@ -59,7 +59,7 @@ bool fileController::writeFile() {
     return false;
 }
 
-void fileController::replaceSubstring(size_t pos, std::string& dst, size_t src_len, const std::string &src) {
+void FileController::replaceSubstring(size_t pos, std::string& dst, size_t src_len, const std::string &src) {
     std::string front = dst.substr(0, pos);
     std::string back = dst.substr(pos + src_len);
     dst = front + src + back;

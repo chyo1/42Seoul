@@ -6,7 +6,7 @@
 #include <string>
 #include <sstream>
 
-class fileController {
+class FileController {
     private:
         char* inputFileName;
         std::string outputFileName;
@@ -16,7 +16,7 @@ class fileController {
         void replaceSubstring(size_t pos, std::string& dst, size_t str1_len, const std::string &src);
         
     public:
-        fileController(char* inputFileName, char* str1, char* str2);
+        FileController(char* inputFileName, char* str1, char* str2);
         bool readFile();
         void replaceSubstrings();
         bool writeFile();
