@@ -25,23 +25,17 @@ class Bureaucrat {
 
         class GradeTooHighException : public std::exception {
             public:
-                virtual const char* what() const throw() {
-                    return "Grade is Too High";
-                }
+                virtual const char* what() const throw();
         };
 
         class GradeTooLowException : public std::exception {
             public:
-                virtual const char* what() const throw() {
-                    return "Grade is Too Low";
-                }
+                virtual const char* what() const throw();
         };
 
         class FailedExecuteForm : public std::exception {
             public:
-                virtual const char* what() const throw() {
-                    return "Failed to execute form";
-                }
+                virtual const char* what() const throw();
         };
 };
 
