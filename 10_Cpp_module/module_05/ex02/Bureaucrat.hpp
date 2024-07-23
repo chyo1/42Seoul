@@ -34,6 +34,13 @@ class Bureaucrat {
                     return "Grade is Too Low";
                 }
         };
+
+        class FailedExecuteForm : public std::exception {
+            public:
+                virtual const char* what() const throw() {
+                    return "Failed to execute form";
+                }
+        };
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& src);

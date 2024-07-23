@@ -8,10 +8,12 @@
 int main() {
 
     try {
-        Bureaucrat b1("b1", 1);
+        Bureaucrat b1("b1", 150);
         ShrubberyCreationForm shrubbery("home");
-        shrubbery.beSigned(b1);
-        shrubbery.execute(b1);
+        // shrubbery.beSigned(b1);
+        // shrubbery.execute(b1);
+
+        b1.executeForm(shrubbery);
 
     } catch (const AForm::GradeTooHighException& e) {
         std::cout << e.what() << std::endl;

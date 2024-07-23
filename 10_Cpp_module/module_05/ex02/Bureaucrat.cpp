@@ -49,5 +49,10 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& src) {
 }
 
 void Bureaucrat::executeForm(AForm const& form) const {
-    form.execute(*this);
+    try {
+        form.execute(*this);
+        std::cout << this->_name << " executed " << form.getName() << std::endl;
+    } catch (AForm::GradeTooLowException &e) {
+        std::cout << this->_name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+    }
 }
