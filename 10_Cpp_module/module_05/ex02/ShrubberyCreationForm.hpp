@@ -16,6 +16,13 @@ class ShrubberyCreationForm : public AForm {
 
         virtual void execute(Bureaucrat const& executor) const;
 
+        class failToOpenFile : public std::exception {
+            public:
+                virtual const char* what() const throw() {
+                    return "Failed to open output file";
+                }
+        };
+
 };
 
 #endif

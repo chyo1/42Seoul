@@ -2,6 +2,7 @@
 #include "Bureaucrat.hpp"
 
 #include <iostream>
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), _target("default") {}
 
@@ -26,7 +27,18 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
     }
     std::string filename = _target + "_shrubbery";
     std::ofstream file(filename);
-    file << "       _-_\n    /~~   ~~\\\n /~~         ~~\\\n{               }\n \\  _-     -_  /\n   ~- _- -_ -~\n     ~- _- ~\n       ~~~\n";
+    if (!file.is_open()) {
+        throw ShrubberyCreationForm::failToOpenFile();
+    }
+    file << "    *" << std::endl;
+    file << "   /.\\ " << std::endl;
+    file << "  /o..\\" << std::endl;
+    file << "  /..o\\" << std::endl;
+    file << " /.o..o\\" << std::endl;
+    file << " /...o.\\" << std::endl;
+    file << "/..o....\\" << std::endl;
+    file << "^^^[_]^^^" << std::endl;
+
     file.close();
     std::cout << "Shrubbery has been created successfully." << std::endl;
 }
