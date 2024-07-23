@@ -4,8 +4,9 @@
 int main() {
 
     try {
-        Bureaucrat highGrade("highGrade", 0);
+        Bureaucrat highGrade("highGrade", 1);
         std::cout << highGrade;
+        highGrade.incrementGrade();
 
     } catch (const Bureaucrat::GradeTooHighException& e) {
         std::cout << e.what() << std::endl;
@@ -16,16 +17,7 @@ int main() {
     try {
         Bureaucrat lowGrade("lowGrade", 151);
         std::cout << lowGrade;
-
-    } catch (const Bureaucrat::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (const Bureaucrat::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    }
-
-    try {
-        Bureaucrat test("test", 1);
-        std::cout << test;
+        lowGrade.decrementGrade();
 
     } catch (const Bureaucrat::GradeTooHighException& e) {
         std::cout << e.what() << std::endl;
