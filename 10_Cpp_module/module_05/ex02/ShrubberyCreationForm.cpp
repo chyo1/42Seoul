@@ -25,11 +25,13 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
     if (!getIsSigned() || executor.getGrade() > getExecGrade()) {
         throw AForm::GradeTooLowException();
     }
+
     std::string filename = _target + "_shrubbery";
     std::ofstream file(filename);
     if (!file.is_open()) {
         throw ShrubberyCreationForm::failToOpenFile();
     }
+    
     file << "    *" << std::endl;
     file << "   /.\\ " << std::endl;
     file << "  /o..\\" << std::endl;
