@@ -4,44 +4,28 @@
 int main() {
 
     try {
-        Form highGrade("highGrade", 0, 0);
-        std::cout << highGrade;
+        Form formA("formA", 0, 1);
+        std::cout << formA;
 
-    } catch (const Form::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (const Form::GradeTooLowException& e) {
+    } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     
     try {
-        Form lowGrade("lowGrade", 151, 1);
-        std::cout << lowGrade;
+        Form formB("formB", 1, 0);
+        std::cout << formB;
 
-    } catch (const Form::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (const Form::GradeTooLowException& e) {
+    } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
 
     try {
-        Form test("test", 1, 1);
-        std::cout << test;
+        Bureaucrat bureaucrat("bureaucrat", 20);
+        Form formC("formC", 10, 1);
+        std::cout << formC;
+        formC.beSigned(bureaucrat);
 
-    } catch (const Form::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (const Form::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    }
-
-     try {
-        Bureaucrat bureaucrat("bureaucrat", 1);
-        Form form("form", 1, 1);
-        form.beSigned(bureaucrat);
-        bureaucrat.signForm(form);
-
-    } catch (const Bureaucrat::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (const Bureaucrat::GradeTooLowException& e) {
+    } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
 
