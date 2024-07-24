@@ -5,8 +5,6 @@
 #include <stdint.h>
 
 class Serializer {
-    private:
-
     public:
         Serializer();
         ~Serializer();
