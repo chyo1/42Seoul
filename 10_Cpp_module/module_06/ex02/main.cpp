@@ -1,6 +1,9 @@
 #include "Base.hpp"
+#include <ctime>
+#include <cstdlib>
 
 int main() {
+    srand(time(NULL));
     Base* base = new Base();
 
     Base* test1 = base->generate();
