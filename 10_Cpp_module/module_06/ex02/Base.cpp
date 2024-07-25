@@ -10,8 +10,10 @@ Base* Base::generate() {
     int random = rand() % 3;
     if (random == 0)
         return new A();
+
     else if (random == 1)
         return new B();
+
     else
         return new C();
 }
@@ -20,15 +22,15 @@ void Base::identify(Base* p) {
     std::cout << "Pointer is pointing to ";
 
     if (dynamic_cast<A*>(p) != NULL)
-		std::cout << "A" << std::endl;
+		std::cout << "A";
 
 	else if (dynamic_cast<B*>(p) != NULL)
-		std::cout << "B" << std::endl;
+		std::cout << "B";
 
 	else if (dynamic_cast<C*>(p) != NULL)
-		std::cout << "C" << std::endl;
+		std::cout << "C";
 
-    std::cout << "type.";
+    std::cout << "type." << std::endl;
 }
 
 void Base::identify(Base& p) {
