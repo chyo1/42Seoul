@@ -27,7 +27,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
     }
 
     std::string filename = _target + "_shrubbery";
-    std::ofstream file(filename);
+    std::ofstream file(filename.c_str());
     if (!file.is_open()) {
         throw ShrubberyCreationForm::failToOpenFile();
     }
