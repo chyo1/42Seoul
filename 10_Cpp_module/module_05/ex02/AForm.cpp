@@ -1,5 +1,4 @@
 #include "AForm.hpp"
-
 #include <iostream>
 #include "Bureaucrat.hpp"
 
@@ -53,4 +52,12 @@ void AForm::beSigned(Bureaucrat& bureaucrat) {
 std::ostream& operator<<(std::ostream& os, const AForm& src) {
     os << "AForm: " << src.getName() << ", Sign Grade: " << src.getSignGrade() << ", Exec Grade: " << src.getExecGrade() << ", Signed: " << src.getIsSigned() << std::endl;
     return os;
+}
+
+const char* AForm::GradeTooHighException::what() const throw() {
+    return "Grade is Too High";
+}
+
+const char* AForm::GradeTooLowException::what() const throw() {
+    return "Grade is Too Low";
 }
