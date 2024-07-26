@@ -42,8 +42,7 @@ int Form::getExecGrade() const {
 
 void Form::beSigned(Bureaucrat& bureaucrat) {
     if (_isSigned) {
-        std::cout << "Form is already signed" << std::endl;
-        return;
+        throw Form::FormIsAlreadySigned();
     }
     if (bureaucrat.getGrade() > _signGrade) {
         throw Form::GradeTooLowException();
@@ -65,4 +64,8 @@ const char* Form::GradeTooHighException::what() const throw() {
 
 const char* Form::GradeTooLowException::what() const throw() {
     return "Grade is Too Low";
+}
+
+const char* Form::FormIsAlreadySigned::what() const throw() {
+    return "Form is already signed";
 }
