@@ -18,6 +18,8 @@ int main() {
     } catch (const AForm::GradeTooLowException& e) {
         std::cout << e.what() << std::endl;
     }
+    std::cout << "--------------------------------------------------" << std::endl << std::endl;
+
 
     try {
         Bureaucrat b2("b2", 1);
@@ -30,6 +32,7 @@ int main() {
     } catch (const AForm::GradeTooLowException& e) {
         std::cout << e.what() << std::endl;
     }
+    std::cout << "--------------------------------------------------" << std::endl << std::endl;
 
     try {
         Bureaucrat b3("b3", 1);
@@ -42,10 +45,10 @@ int main() {
     } catch (const AForm::GradeTooLowException& e) {
         std::cout << e.what() << std::endl;
     }
-
+    std::cout << "--------------------------------------------------" << std::endl << std::endl;
 
     try {
-        Bureaucrat b4("b4", 2);
+        Bureaucrat b4("b4", 149);
         ShrubberyCreationForm shrubbery("home4");
         shrubbery.beSigned(b4);
         b4.executeForm(shrubbery);
@@ -55,6 +58,8 @@ int main() {
     } catch (const AForm::GradeTooLowException& e) {
         std::cout << e.what() << std::endl;
     }
+    std::cout << "--------------------------------------------------" << std::endl << std::endl;
+
 
     return 0;
 }
