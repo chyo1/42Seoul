@@ -13,9 +13,11 @@ int main() {
         shrubbery.beSigned(b1);
         shrubbery.execute(b1);
 
-    } catch (const AForm::GradeTooHighException& e) {
+    } catch (std::exception e) {
         std::cout << e.what() << std::endl;
     } catch (const AForm::GradeTooLowException& e) {
+        std::cout << e.what() << std::endl;
+    } catch (ShrubberyCreationForm::failToOpenFile& e) {
         std::cout << e.what() << std::endl;
     }
     std::cout << "--------------------------------------------------" << std::endl << std::endl;
