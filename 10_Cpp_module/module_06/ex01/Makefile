@@ -1,7 +1,7 @@
 RM = rm -f
 CXX = c++
 NAME = exec
-SRCS = main.cpp Serializer.cpp
+SRCS = main.cpp Serializer.cpp Data.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 

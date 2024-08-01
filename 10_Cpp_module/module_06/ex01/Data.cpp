@@ -7,6 +7,9 @@ Data::Data(Data const &src) {
 }
 
 Data &Data::operator=(Data const &src) {
+	if (this != &src) {
+		*this = src;
+	}
     return *this;
 }
 

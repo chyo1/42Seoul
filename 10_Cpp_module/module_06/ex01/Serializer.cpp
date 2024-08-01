@@ -7,6 +7,9 @@ Serializer::Serializer(Serializer const &src) {
 }
 
 Serializer &Serializer::operator=(Serializer const &src) {
+	if (this != &src) {
+		*this = src;
+	}
 	return *this;
 }
 
