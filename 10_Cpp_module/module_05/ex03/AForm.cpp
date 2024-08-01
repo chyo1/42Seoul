@@ -1,5 +1,4 @@
 #include "AForm.hpp"
-
 #include <iostream>
 #include "Bureaucrat.hpp"
 
@@ -41,6 +40,9 @@ int AForm::getExecGrade() const {
 }
 
 void AForm::beSigned(Bureaucrat& bureaucrat) {
+    if (_isSigned) {
+        throw AForm::FormIsAlreadySigned();
+    }
     if (bureaucrat.getGrade() > _signGrade) {
         throw AForm::GradeTooLowException();
     }
@@ -53,4 +55,16 @@ void AForm::beSigned(Bureaucrat& bureaucrat) {
 std::ostream& operator<<(std::ostream& os, const AForm& src) {
     os << "AForm: " << src.getName() << ", Sign Grade: " << src.getSignGrade() << ", Exec Grade: " << src.getExecGrade() << ", Signed: " << src.getIsSigned() << std::endl;
     return os;
+}
+
+const char* AForm::GradeTooHighException::what() const throw() {
+    return "Grade is Too High";
+}
+
+const char* AForm::GradeTooLowException::what() const throw() {
+    return "Grade is Too Low";
+}
+
+const char* AForm::FormIsAlreadySigned::what() const throw() {
+    return "Form is already signed";
 }
