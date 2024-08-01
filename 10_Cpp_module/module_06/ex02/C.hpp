@@ -3,11 +3,6 @@
 
 #include "Base.hpp"
 
-class C : public Base {
-    public:
-        Base* generate();
-        void identify(Base* p);
-        void identify(Base& p);
-};
+class C : public Base {};
 
 #endif
