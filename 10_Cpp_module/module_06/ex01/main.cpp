@@ -3,7 +3,7 @@
 int main() {
 
     Serializer serializer;
-    Data data;
+    Data data(100);
 
     uintptr_t serialized = serializer.serialize(&data);
     Data *deserialized = serializer.deserialize(serialized);
@@ -11,5 +11,7 @@ int main() {
     std::cout << "Data: " << &data << std::endl;
     std::cout << "Serialized: " << serialized << std::endl;
     std::cout << "Deserialized: " << deserialized << std::endl;
+	std::cout << deserialized->getA() << std::endl;
+
     return 0;
 }

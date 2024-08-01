@@ -1,8 +1,10 @@
 #include "Data.hpp"
 
-Data::Data() {}
+Data::Data() : a(0) {}
 
-Data::Data(Data const &src) {
+Data::Data(int a) : a(a) {}
+
+Data::Data(Data const &src) : a(src.a) {
     *this = src;
 }
 
@@ -14,3 +16,7 @@ Data &Data::operator=(Data const &src) {
 }
 
 Data::~Data() {}
+
+int Data::getA() const {
+	return a;
+}
