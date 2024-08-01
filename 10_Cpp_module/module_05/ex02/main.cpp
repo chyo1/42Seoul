@@ -13,11 +13,7 @@ int main() {
         shrubbery.beSigned(b1);
         shrubbery.execute(b1);
 
-    } catch (const AForm::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (const AForm::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (ShrubberyCreationForm::failToOpenFile& e) {
+    } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     std::cout << "--------------------------------------------------" << std::endl << std::endl;
@@ -29,9 +25,7 @@ int main() {
         robotomy.beSigned(b2);
         robotomy.execute(b2);
 
-    } catch (const AForm::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (const AForm::GradeTooLowException& e) {
+    } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     std::cout << "--------------------------------------------------" << std::endl << std::endl;
@@ -42,9 +36,7 @@ int main() {
         presidentialPardon.beSigned(b3);
         presidentialPardon.execute(b3);
 
-    } catch (const AForm::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (const AForm::GradeTooLowException& e) {
+    } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     std::cout << "--------------------------------------------------" << std::endl << std::endl;
@@ -55,13 +47,10 @@ int main() {
         shrubbery.beSigned(b4);
         b4.executeForm(shrubbery);
 
-    } catch (const AForm::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (const AForm::GradeTooLowException& e) {
+    } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     std::cout << "--------------------------------------------------" << std::endl << std::endl;
-
 
     return 0;
 }
