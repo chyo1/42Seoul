@@ -6,18 +6,17 @@ class Array {
     private:
         T *_arr;
         unsigned int _size;
-        unsigned int _capacity;
 
     public:
-        Array() : _arr(NULL), _size(0), _capacity(0) {};
+        Array() : _arr(NULL), _size(0) {};
 
-        Array(unsigned int n) : _arr(NULL), _size(n), _capacity(n) {
+        Array(unsigned int n) : _arr(NULL), _size(n) {
             if (n > 0) {
                 _arr = new T[n];
             }
         };
 
-        Array(const Array &src) : _arr(NULL), _size(src._size), _capacity(src._size) {
+        Array(const Array &src) : _arr(NULL), _size(src._size) {
             if (src._size > 0) {
                 _arr = new T[src._size];
                 for (unsigned int i = 0; i < _size; i++) {
@@ -31,7 +30,6 @@ class Array {
                 return *this;
             }
             _size = src._size;
-            _capacity = src._size;
 
             delete[] _arr;
             if (src._size > 0) {
