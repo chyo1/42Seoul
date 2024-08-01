@@ -44,3 +44,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
     file.close();
     std::cout << "Shrubbery has been created successfully." << std::endl;
 }
+
+const char* ShrubberyCreationForm::failToOpenFile::what() const throw() {
+    return "Fail to open file";
+}
