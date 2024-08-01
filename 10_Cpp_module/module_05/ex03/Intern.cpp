@@ -10,22 +10,39 @@ Intern::Intern(Intern const& src) {
 }
 
 Intern& Intern::operator=(Intern const& src) {
+	if (this != &src) {
+        ;
+    }
     return *this;
 }
 
 Intern::~Intern() {}
 
 AForm* Intern::makeForm(std::string formName, std::string target) {
-    if (formName == "shrubbery creation") {
-        return new ShrubberyCreationForm(target);
-    } else if (formName == "robotomy request") {
-        return new RobotomyRequestForm(target);
-    } else if (formName == "presidential pardon") {
-        return new PresidentialPardonForm(target);
-    } else {
-        throw Intern::FormNotFound();
+    std::string formNames[3] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
+    AForm* form = NULL;
+
+    int i;
+    for (i = 0; i < 3; i++) {
+        if (formName == formNames[i])
+            break;
     }
+	switch (i){
+		case 0:
+			form = new ShrubberyCreationForm(target);
+			break;
+		case 1:
+			form = new RobotomyRequestForm(target);
+			break;
+		case 2:
+			form = new PresidentialPardonForm(target);
+			break;
+		default:
+			throw FormNotFound();
+			break;
+	}
     std::cout << "Intern creates " << formName << std::endl;
+    return form;
 }
 
 const char* Intern::FormNotFound::what() const throw() {
