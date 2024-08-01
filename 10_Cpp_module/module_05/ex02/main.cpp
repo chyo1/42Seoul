@@ -13,7 +13,7 @@ int main() {
         shrubbery.beSigned(b1);
         shrubbery.execute(b1);
 
-    } catch (std::exception e) {
+    } catch (const AForm::GradeTooHighException& e) {
         std::cout << e.what() << std::endl;
     } catch (const AForm::GradeTooLowException& e) {
         std::cout << e.what() << std::endl;
