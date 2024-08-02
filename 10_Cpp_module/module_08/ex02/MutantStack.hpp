@@ -4,6 +4,7 @@
 #include <stack>
 #include <iterator>
 
+// 스택 타입 2개 받음
 template <typename T>
 class MutantStack : public std::stack<T> {
 
@@ -25,6 +26,7 @@ class MutantStack : public std::stack<T> {
 		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
 		typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
 
+// this 왜 붙여야 되는지?
         iterator begin() {
             return this->c.begin();
         }

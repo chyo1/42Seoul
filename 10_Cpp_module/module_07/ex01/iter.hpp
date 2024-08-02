@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 
+// 함수 포인터 템플릿으로 정의해서 넘기기 ->  const 필요 없음
 template<typename T>
 void iter(T *array, size_t length, void (*func)(T &)) {
     for (size_t i = 0; i < length; i++) {

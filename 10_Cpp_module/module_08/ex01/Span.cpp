@@ -12,7 +12,9 @@ Span::Span(Span const& src) {
 Span& Span::operator=(Span const& span) {
     if (this != &span) {
         _n = span._n;
-        std::copy(span._v.begin(), span._v.end(), _v.begin());
+    _v = span._v; // 깊은 복사 하면 안댐 왜?
+
+        // std::copy(span._v.begin(), span._v.end(), _v.begin());
     }
     return *this;
 }
@@ -26,6 +28,7 @@ void Span::addNumber(int n) {
     _v.push_back(n);
 }
 
+// 크기 받지 말고 내가 계산, 표준 라이브러리 확인
 template <typename Iter>
 void Span::addNumbers(Iter begin, Iter end, unsigned int n) {
     if (_n < _v.size() + n)
@@ -33,6 +36,7 @@ void Span::addNumbers(Iter begin, Iter end, unsigned int n) {
 
     for (Iter it = begin; it != end; it++)
         _v.push_back(*it);
+// back_inserter 써보기
 }
 
 long long Span::shortestSpan() {
@@ -40,6 +44,7 @@ long long Span::shortestSpan() {
         throw std::out_of_range("Not enough elements, no span can be found");
 
     std::sort(_v.begin(), _v.end());
+	// unsigned int 범위로 다 바꾸기 인덱스, 최댓값 등
     int shortestSpan = INT_MAX;
     for (int i = 0; i < static_cast<unsigned int>(_v.size()) - 1; i++) {
         if (_v[i + 1] - _v[i] < shortestSpan)
