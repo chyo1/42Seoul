@@ -18,12 +18,13 @@ int main()
         std::cout << e.what() << std::endl;
     }
 
+    std::cout << std::endl << "------test with deque------" << std::endl;
     std::deque<int> deq;
     for (int i = 0; i < 10; i++)
         deq.push_back(i);
     
     try{
-        std::cout << "Testing with list" << std::endl; 
+        std::cout << "Testing with deque" << std::endl; 
         std::cout << "First locaton is " << easyfind(deq, 5) - deq.begin() << std::endl;
         std::cout << "First locaton is " << easyfind(deq, 10) - deq.begin() << std::endl;
     }
