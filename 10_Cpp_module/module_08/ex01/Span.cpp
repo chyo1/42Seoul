@@ -28,8 +28,8 @@ void Span::addNumber(int n) {
 
 template <typename Iter>
 void Span::addNumbers(Iter begin, Iter end) {
-    unsigned int _sizeum = std::distance(begin, end);
-    if (_size < _v.size() + n)
+    unsigned int inputSize = std::distance(begin, end);
+    if (_size < _v.size() + inputSize)
         throw std::out_of_range("No more space");
 
     for (Iter it = begin; it != end; it++)
