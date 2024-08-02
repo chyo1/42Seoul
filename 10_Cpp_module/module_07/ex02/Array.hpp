@@ -50,15 +50,14 @@ class Array {
         };
 
 
-		// 인덱스 범위는 0보다 작지 않아
         T& operator[](unsigned int idx) {
-            if (idx < 0 || idx > this->_size - 1)
+            if (idx > this->_size - 1)
                 throw std::out_of_range("Index out of range");
             return this->_arr[idx];
         }
 
         const T& operator[](unsigned int idx) const {
-            if (idx < 0 || idx > this->_size - 1)
+            if (idx > this->_size - 1)
                 throw std::out_of_range("Index out of range");
             return this->_arr[idx];
         }
