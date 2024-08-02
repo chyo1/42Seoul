@@ -38,18 +38,18 @@ void Base::identify(Base& p) {
         p = dynamic_cast<A&>(p);
         std::cout << "A type." << std::endl;
         return;
-    } catch (std::bad_cast& e) {}
+    } catch (std::exception& e) {} //
 
     try {
         p = dynamic_cast<B&>(p);
         std::cout << "B type." << std::endl;
         return;
-    } catch (std::bad_cast& e) {}
+    } catch (std::exception& e) {}
 
     try {
         p = dynamic_cast<C&>(p);
         std::cout << "C type." << std::endl;
         return;
-    } catch (std::bad_cast& e) {}
+    } catch (std::exception& e) {}
 
 }
