@@ -35,6 +35,8 @@ int main()
 
     /*---- compare with list ----*/
 
+    std::cout << "---- list ----" << std::endl;
+
     std::list<int> list;
 
     list.push_back(5);
