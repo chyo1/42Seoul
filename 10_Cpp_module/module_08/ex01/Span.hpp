@@ -15,6 +15,9 @@ class Span {
         Span & operator=(Span const & rhs);
 
         void addNumber(int n);
+
+        template <typename Iter>
+        void addNumbers(Iter begin, Iter end, unsigned int n);
         long long shortestSpan();
         long long longestSpan();
 };
