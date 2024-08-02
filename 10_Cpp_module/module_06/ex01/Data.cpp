@@ -10,7 +10,7 @@ Data::Data(Data const &src) : a(src.a) {
 
 Data &Data::operator=(Data const &src) {
 	if (this != &src) {
-		*this = src;
+		a = src.a;
 	}
     return *this;
 }
