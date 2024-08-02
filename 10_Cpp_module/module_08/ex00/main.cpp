@@ -1,6 +1,6 @@
 #include "easyfind.hpp"
 #include <vector>
-#include <list>
+#include <deque>
 
 
 int main()
@@ -11,21 +11,21 @@ int main()
 
     try{
         std::cout << "Testing with vector" << std::endl; 
-        easyfind(vec, 5);
-        easyfind(vec, 10);
+        std::cout << "First locaton is " << easyfind(vec, 5) - vec.begin() << std::endl;
+        std::cout << "First locaton is " << easyfind(vec, 10) - vec.begin() << std::endl;
     }
     catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
 
-    std::list<int> lst;
+    std::deque<int> deq;
     for (int i = 0; i < 10; i++)
-        lst.push_back(i);
+        deq.push_back(i);
     
     try{
         std::cout << "Testing with list" << std::endl; 
-        easyfind(lst, 5);
-        easyfind(lst, 10);
+        std::cout << "First locaton is " << easyfind(deq, 5) - deq.begin() << std::endl;
+        std::cout << "First locaton is " << easyfind(deq, 10) - deq.begin() << std::endl;
     }
     catch (std::exception &e) {
         std::cout << e.what() << std::endl;
