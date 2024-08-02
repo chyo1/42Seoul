@@ -4,6 +4,8 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+#include <typeinfo>
+
 
 Base* Base::generate() {
     int random = rand() % 3;
