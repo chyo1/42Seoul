@@ -4,7 +4,7 @@
 #include <vector> 
 class Span {
     private:
-        unsigned int _n;
+        unsigned int _size;
         std::vector<int> _v;
 
     public:
@@ -17,9 +17,9 @@ class Span {
         void addNumber(int n);
 
         template <typename Iter>
-        void addNumbers(Iter begin, Iter end, unsigned int n);
-        long long shortestSpan();
-        long long longestSpan();
+        void addNumbers(Iter begin, Iter end);
+        unsigned int shortestSpan();
+        unsigned int longestSpan();
 };
 
 #endif
