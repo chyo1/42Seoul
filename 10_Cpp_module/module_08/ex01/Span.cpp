@@ -17,7 +17,7 @@ void Span::addNumber(int n) {
     _v.push_back(n);
 }
 
-int Span::shortestSpan() {
+long long Span::shortestSpan() {
     if (_v.size() < 2)
         throw std::out_of_range("Not enough elements, no span can be found");
     std::sort(_v.begin(), _v.end());
@@ -29,7 +29,7 @@ int Span::shortestSpan() {
     return shortestSpan;
 }
 
-int Span::longestSpan() {
+long long Span::longestSpan() {
     if (_v.size() < 2)
         throw std::out_of_range("Not enough elements, no span can be found");
     std::sort(_v.begin(), _v.end());

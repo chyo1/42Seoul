@@ -15,8 +15,8 @@ class Span {
         Span & operator=(Span const & rhs);
 
         void addNumber(int n);
-        int shortestSpan();
-        int longestSpan();
+        long long shortestSpan();
+        long long longestSpan();
 };
 
 #endif
