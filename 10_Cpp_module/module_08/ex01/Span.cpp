@@ -22,7 +22,7 @@ int Span::shortestSpan() {
         throw std::out_of_range("Not enough elements, no span can be found");
     std::sort(_v.begin(), _v.end());
     int shortestSpan = INT_MAX;
-    for (int i = 0; i < static_cast<int>(_v.size()) - 1; i++) {
+    for (int i = 0; i < static_cast<int>(_v.size()) - 1; i++) { // 냅다 캐스팅 가능? iter 써야 되려나
         if (_v[i + 1] - _v[i] < shortestSpan)
             shortestSpan = _v[i + 1] - _v[i];
     }
@@ -32,7 +32,6 @@ int Span::shortestSpan() {
 int Span::longestSpan() {
     if (_v.size() < 2)
         throw std::out_of_range("Not enough elements, no span can be found");
-    int min = *std::min_element(_v.begin(), _v.end());
-    int max = *std::max_element(_v.begin(), _v.end());
-    return max - min;
+    std::sort(_v.begin(), _v.end());
+    return _v.back() - _v.front();
 }
