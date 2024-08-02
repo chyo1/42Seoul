@@ -9,12 +9,20 @@ Span::Span(Span const& src) {
     _v = src._v;
 }
 
+Span& Span::operator=(Span const& span) {
+    if (this != &span) {
+        _n = span._n;
+        std::copy(span._v.begin(), span._v.end(), _v.begin());
+    }
+    return *this;
+}
+
 Span::~Span() {}
 
 void Span::addNumber(int n) {
     if (_n == _v.size())
         throw std::out_of_range("No more space");
-        
+
     _v.push_back(n);
 }
 
@@ -26,7 +34,6 @@ void Span::addNumbers(Iter begin, Iter end, unsigned int n) {
     for (Iter it = begin; it != end; it++)
         _v.push_back(*it);
 }
-
 
 long long Span::shortestSpan() {
     if (_v.size() < 2)
