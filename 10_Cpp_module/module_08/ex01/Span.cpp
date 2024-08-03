@@ -34,7 +34,6 @@ void Span::addNumbers(Iter begin, Iter end) {
 
     for (Iter it = begin; it != end; it++)
         _v.push_back(*it);
-// back_inserter 써보기
 }
 
 unsigned int Span::shortestSpan() {
