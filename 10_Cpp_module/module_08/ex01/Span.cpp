@@ -42,10 +42,10 @@ unsigned int Span::shortestSpan() {
 
     std::sort(_v.begin(), _v.end());
 
-    unsigned int shortestSpan = INT_MAX - INT_MIN;
+    unsigned int shortestSpan = UINT_MAX;
     for (unsigned int i = 0; i < static_cast<unsigned int>(_v.size()) - 1; i++) {
-        if (_v[i + 1] - _v[i] < shortestSpan)
-            shortestSpan = _v[i + 1] - _v[i];
+        if (static_cast<unsigned int>(_v[i + 1] - _v[i]) < shortestSpan)
+            shortestSpan = static_cast<unsigned int>(_v[i + 1] - _v[i]);
     }
     return shortestSpan;
 }
