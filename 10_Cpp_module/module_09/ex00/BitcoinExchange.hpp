@@ -1,10 +1,10 @@
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
-#include <vector>
+#include <map>
 class BitcoinExchange {
     private:
-        std::vector< std::pair<std::string, float> > rates;
+        std::map<std::string, float> rates;
         
     public:
         BitcoinExchange();

@@ -41,7 +41,7 @@ void BitcoinExchange::readDataFileAndGetRate() {
             checkValidDate(date);
             checkValidRate(rate);
 
-            rates.push_back(std::make_pair(date, std::stof(rate)));
+            rates[date] = std::stof(rate);
     }
     file.close();
 }
@@ -124,12 +124,13 @@ float BitcoinExchange::openInputFileAndGetBitcoinPrice(char* fileName) {
     return 0;
 }
 
-bool cmp(const std::pair<std::string, float>& pair, const std::string& key) {
-    return pair.first <= key;
-}
+// bool cmp(const std::pair<std::string, float>& pair, const std::string& key) {
+//     return pair.first <= key;
+// }
 
 float BitcoinExchange::getBitcoinPrice(std::string date) {
-    size_t idx = std::lower_bound(rates.begin(), rates.end(), date, cmp) - rates.begin();
-    // std::cout << "idx : " << idx-1 << ", date : " << rates[idx-1].first << ", rate : " << rates[idx-1].second << std::endl;
-    return rates[idx - 1].second;
+    std::map<std::string, float>::iterator iter = rates.lower_bound(date);
+    if (iter->first != date)
+        --iter;
+    return iter->second;
 }
