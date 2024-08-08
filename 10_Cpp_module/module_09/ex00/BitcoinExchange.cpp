@@ -130,8 +130,6 @@ bool cmp(const std::pair<std::string, float>& pair, const std::string& key) {
 
 float BitcoinExchange::getBitcoinPrice(std::string date) {
     size_t idx = std::lower_bound(rates.begin(), rates.end(), date, cmp) - rates.begin();
-    if (idx == rates.size())
-        throw std::runtime_error("Invalid date");
     // std::cout << "idx : " << idx-1 << ", date : " << rates[idx-1].first << ", rate : " << rates[idx-1].second << std::endl;
     return rates[idx - 1].second;
 }
