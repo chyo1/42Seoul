@@ -1,15 +1,22 @@
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
+#include <vector>
 class BitcoinExchange {
     private:
-        float rate;
+        std::vector< std::pair<std::string, float> > rates;
+        
     public:
         BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange &other);
+        BitcoinExchange &operator=(const BitcoinExchange &other);
         ~BitcoinExchange();
-        void setRate(float rate);
-        float getRate() const;
-        float convertToBitcoin(float usd) const;
-        float convertToUsd(float bitcoin) const;
+
+        void readDataFileAndGetRate();
+        void checkValidDate(std::string date);
+        void checkValidRate(std::string rate);
+        float openInputFileAndGetBitcoinPrice(char* fileName);
+        float getBitcoinPrice(std::string date);
+
 };
 #endif

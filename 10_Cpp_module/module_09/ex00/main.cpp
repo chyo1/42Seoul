@@ -2,15 +2,19 @@
 #include <iostream>
 int main(int argc, char** argv) {
     if (argc != 2) {
-        std::cerr << "You have to put a data file" << std::endl;
+        std::cerr << "Error: could not open file." << std::endl;
         return 1;
     }
 
-
+    
     BitcoinExchange exchange;
-    exchange.setRate(10000);
-    std::cout << exchange.convertToBitcoin(100) << std::endl;
-    std::cout << exchange.convertToUsd(1) << std::endl;
-    return 0;
+    try {
+        exchange.readDataFileAndGetRate();
+        exchange.openInputFileAndGetBitcoinPrice(argv[1]);
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+        return 1;
+    }
 
+    return 0;
 }
