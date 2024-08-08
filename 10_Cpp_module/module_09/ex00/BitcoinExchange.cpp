@@ -101,7 +101,12 @@ float BitcoinExchange::openInputFileAndGetBitcoinPrice(char* fileName) {
         std::string date = line.substr(0, idx - 1);
         float value = stof(line.substr(idx + 2, line.size() - idx - 2));
         
-        checkValidDate(date);
+        try {
+            checkValidDate(date);
+        } catch (const std::exception &e) {
+            std::cout << "Error: bad input => " << date << std::endl;
+            continue;
+        }
         if (value < 0) {
             std::cout << "Error: not a positive number." << std::endl;
             continue;
