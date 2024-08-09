@@ -5,8 +5,9 @@
 #include <deque>
 class PmergeMe {
     private:
-        std::vector<int> _vec;
-        std::deque<int> _deq; //
+        std::vector< std::pair<int, int> > _vec;
+        std::deque< std::pair<int, int> > _deq; //
+        size_t _numberCnt;
 
     public:
         PmergeMe();
@@ -14,12 +15,12 @@ class PmergeMe {
         PmergeMe(const PmergeMe &pmergeMe);
         PmergeMe &operator=(const PmergeMe &pmergeMe);
 
-        void checkValidInputAndPrintInput(int argc, char** argv);
-        void merge(int *arr, int l, int m, int r);
-        void mergeSort(int *arr, int l, int r);
+        void checkValidInput(int argc, char** argv);
+        void devideAndGetPair();
+        void mergeSort();
 
-        template <typename T>
-        void printArr(T vec);
+        void printArr();
+        int getNumberCnt();
 };
 
 #endif
