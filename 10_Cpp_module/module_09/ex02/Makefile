@@ -1,7 +1,7 @@
 RM = rm -f
 CXX = c++
-NAME = exec
-SRCS = main.cpp
+NAME = PmergeMe
+SRCS = main.cpp PmergeMe.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
