@@ -5,6 +5,7 @@
 #include <deque>
 class PmergeMe {
     private:
+        std::vector<int> _arr;
         std::vector< std::pair<int, int> > _vec;
         std::deque< std::pair<int, int> > _deq; //
         size_t _numberCnt;
@@ -16,11 +17,11 @@ class PmergeMe {
         PmergeMe &operator=(const PmergeMe &pmergeMe);
 
         void checkValidInput(int argc, char** argv);
-        void devideAndGetPair();
+        int devideAndGetPair();
         void mergeSort();
 
         void printArr();
-        int getNumberCnt();
+        void printVec();
 };
 
 #endif

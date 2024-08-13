@@ -1,6 +1,8 @@
 #include "PmergeMe.hpp"
 #include <iostream>
+#include <algorithm>
 
+typedef std::pair<int, int> pi;
 PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(const PmergeMe &pmergeMe) {
@@ -34,20 +36,26 @@ void PmergeMe::checkValidInput(int argc, char** argv) {
 
     for (int i = 1; i < argc; i++) {
         checkIsValidNumber(argv[i]);
-        _vec.push_back(std::make_pair( std::stoi(argv[i]), 0) );
-        _deq.push_back(std::make_pair( std::stoi(argv[i]), 0) );
+        _arr.push_back(std::stoi(argv[i]));
     }
     _numberCnt = argc - 1;
 }
 
 void PmergeMe::printArr() {
+    for (size_t i = 0; i < _arr.size(); i++) {
+        std::cout << _arr[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+void PmergeMe::printVec() {
     for (size_t i = 0; i < _vec.size(); i++) {
         std::cout << _vec[i].first << " ";
     }
     std::cout << std::endl;
 }
 
-void PmergeMe::devideAndGetPair() {
+int PmergeMe::devideAndGetPair() {
     size_t pow2 = 1;
     
     while (_numberCnt > pow2)
@@ -55,30 +63,74 @@ void PmergeMe::devideAndGetPair() {
 
     // 2의 제곱으로 전체 배열의 크기 맞추기
     for (size_t i = 0; i < pow2 - _numberCnt; i++) {
-        _vec.push_back( std::make_pair(-1, 0) );
-        _deq.push_back( std::make_pair(-1, 0) );
+        _arr.push_back(-1);
     }
 
     // 인덱스 pair 맞춰주기
     size_t term = 1;
     while (term < pow2) {
         for (size_t j = 0; j < pow2 - term; j += term * 2) {
-            if (_vec[j] < _vec[j + term]) {
+            if (_arr[j] < _arr[j + term]) {
                 for (size_t k = 0; k < term; k++) {
-                    std::swap(_vec[j + k], _vec[j + term + k]);
+                    std::swap(_arr[j + k], _arr[j + term + k]);
                 }
             }
         }
         term *= 2;
     }
-
-    // 현재 인덱스를 pair에 저장
-    for (size_t i = 0; i < pow2; i++)
-        _vec[i].second = i;
-
+    return pow2 / 2;
 }
 
+bool cmp(pi a, pi b) { return a.first <= b.first; }
+
 void PmergeMe::mergeSort() {
-    devideAndGetPair();
-    // printArr();
+    int pairLoc = devideAndGetPair();
+    std::vector< pi > mainPairArr, mainSingleArr;
+    
+    // 메이저 배열 저장
+    _vec.push_back( std::make_pair(_arr[0], 0) );
+
+    while (pairLoc > 0) {
+
+        // 서브 배열 생성
+        for (size_t i = 0; i < _vec.size(); i++) {
+            size_t subIdx = _vec[i].second + pairLoc;
+
+            // 짝이 없으면 single, 있으면 pair
+            if (_arr[subIdx] < 0)
+                mainSingleArr.push_back(_vec[i]);
+            else
+                mainPairArr.push_back(_vec[i]);
+        }
+
+        // _vec에서 singleArr 삭제
+        for (size_t i = 0; i < mainSingleArr.size(); i++)
+            _vec.erase(std::find(_vec.begin(), _vec.end(), mainSingleArr[i]));
+
+        // 야콥스타일 수 구하기, 그 수부터 앞으로 넣기
+        size_t startIdx = 0, jacobStyle = 0;
+        for (size_t i = startIdx + jacobStyle; i >= startIdx; i--) {
+            int minorIdx = mainPairArr[i].second + pairLoc;
+            std::vector<pi>::iterator mainPairLoc = std::find(_vec.begin(), _vec.end(), mainPairArr[i]);
+            mainPairLoc++; // 해당 값까지 찾아야 함
+
+            // begin() ~ majorPair의 범위에서 cmp 함수 기준으로 minorPair보다 작은 값을 찾은 후, 해당 자리에 minorPair 삽입
+            pi minorPair = std::make_pair(_arr[minorIdx], minorIdx);
+            _vec.insert(std::lower_bound(_vec.begin(), mainPairLoc, minorPair, cmp), minorPair);
+        }
+
+        startIdx += (jacobStyle + 1);
+        size_t befSize = startIdx * 2 + 1, nowSize = mainPairArr.size() - startIdx + 1;
+        jacobStyle = std::pow(2, std::floor(log2(befSize)) + 1) - befSize - 1;
+
+        // 0 < jacobStyle number < nowSize
+        std::max(jacobStyle, static_cast<size_t>(0));
+        std::min(jacobStyle, nowSize);
+
+        for (size_t i = 0; i < mainSingleArr.size(); i++) 
+            _vec.insert(std::lower_bound(_vec.begin(), _vec.end(), mainSingleArr[i], cmp), mainSingleArr[i]);
+
+        // pair 위치 조정
+        pairLoc /= 2;
+    }
 }

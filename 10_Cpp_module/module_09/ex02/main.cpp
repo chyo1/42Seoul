@@ -15,8 +15,8 @@ int main(int argc, char** argv) {
 
     pmergeMe.mergeSort();
 
-    // std::cout << "After: ";
-    // pmergeMe.printArr();
+    std::cout << "After: ";
+    pmergeMe.printVec();
 
     // std::cout << "Time to process a range of " << argc - 1 << "elements with std::vector :" << std::endl;
     // std::cout << "Time to process a range of " << argc - 1 << "elements with std::[..] :" << std::endl; //
