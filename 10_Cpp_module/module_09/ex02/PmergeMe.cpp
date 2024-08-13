@@ -92,7 +92,7 @@ void PmergeMe::mergeSort() {
 
     while (pairLoc > 0) {
 
-        // 서브 배열 생성
+        // 메인 배열 생성
         for (size_t i = 0; i < _vec.size(); i++) {
             size_t subIdx = _vec[i].second + pairLoc;
 
@@ -108,25 +108,30 @@ void PmergeMe::mergeSort() {
             _vec.erase(std::find(_vec.begin(), _vec.end(), mainSingleArr[i]));
 
         // 야콥스타일 수 구하기, 그 수부터 앞으로 넣기
-        size_t startIdx = 0, jacobStyle = 0;
-        for (size_t i = startIdx + jacobStyle; i >= startIdx; i--) {
-            int minorIdx = mainPairArr[i].second + pairLoc;
-            std::vector<pi>::iterator mainPairLoc = std::find(_vec.begin(), _vec.end(), mainPairArr[i]);
-            mainPairLoc++; // 해당 값까지 찾아야 함
+        int startIdx = 0, jacobStyle = 0;
+        while (startIdx < static_cast<int>(mainPairArr.size())) {
+            for (int i = startIdx + jacobStyle; i >= startIdx; i--) {
+                std::cout << i << " " << pairLoc << std::endl;//
+                int minorIdx = mainPairArr[i].second + pairLoc;
 
-            // begin() ~ majorPair의 범위에서 cmp 함수 기준으로 minorPair보다 작은 값을 찾은 후, 해당 자리에 minorPair 삽입
-            pi minorPair = std::make_pair(_arr[minorIdx], minorIdx);
-            _vec.insert(std::lower_bound(_vec.begin(), mainPairLoc, minorPair, cmp), minorPair);
+                // 값 넣을 범위 탐색
+                std::vector<pi>::iterator mainPairLoc = std::find(_vec.begin(), _vec.end(), mainPairArr[i]);
+                mainPairLoc++;
+
+                // begin() ~ majorPair의 범위에서 cmp 함수 기준으로 minorPair보다 작은 값을 찾은 후, 해당 자리에 minorPair 삽입
+                pi minorPair = std::make_pair(_arr[minorIdx], minorIdx);
+                _vec.insert(std::lower_bound(_vec.begin(), mainPairLoc, minorPair, cmp), minorPair);
+            }
+
+            startIdx += (jacobStyle + 1);
+            int befSize = startIdx * 2 + 1, nowSize = mainPairArr.size() - startIdx + 1;
+            jacobStyle = std::pow(2, std::floor(log2(befSize)) + 1) - befSize - 1;
+
+            // 0 < jacobStyle number < nowSize
+            jacobStyle = std::max(jacobStyle, 0);
+            jacobStyle = std::min(jacobStyle, nowSize - 1);
+            
         }
-
-        startIdx += (jacobStyle + 1);
-        size_t befSize = startIdx * 2 + 1, nowSize = mainPairArr.size() - startIdx + 1;
-        jacobStyle = std::pow(2, std::floor(log2(befSize)) + 1) - befSize - 1;
-
-        // 0 < jacobStyle number < nowSize
-        std::max(jacobStyle, static_cast<size_t>(0));
-        std::min(jacobStyle, nowSize);
-
         for (size_t i = 0; i < mainSingleArr.size(); i++) 
             _vec.insert(std::lower_bound(_vec.begin(), _vec.end(), mainSingleArr[i], cmp), mainSingleArr[i]);
 

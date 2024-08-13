@@ -3,7 +3,7 @@ CXX = c++
 NAME = PmergeMe
 SRCS = main.cpp PmergeMe.cpp
 OBJS = $(SRCS:.cpp=.o)
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++98 #-fsanitize=address -g
 
 all: $(NAME)
 
