@@ -29,7 +29,7 @@ float stringToFloat(const std::string& str) {
 
     // Check for errors: if the stream fails or there are remaining characters in the string
     if (ss.fail() || !ss.eof()) {
-        throw std::runtime_error("Invalid float format");
+        throw std::runtime_error("Error");
     }
 
     return result;
@@ -38,7 +38,7 @@ float stringToFloat(const std::string& str) {
 void checkIsValidNumber(std::string str) {
     for (size_t i = 0; i < str.length(); i++) {
         if (!isdigit(str[i])) 
-            throw std::invalid_argument("Invalid input");
+            throw std::invalid_argument("Error");
     }
 }
 void PmergeMe::checkValidInput(int argc, char** argv) {
