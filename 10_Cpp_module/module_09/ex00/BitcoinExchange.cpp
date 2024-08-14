@@ -113,14 +113,16 @@ float BitcoinExchange::openInputFileAndGetBitcoinPrice(char* fileName) {
     std::cout << line << std::endl;
 
     while (std::getline(file, line)) {
+
+        // check data format
         size_t idx = std::find(line.begin(), line.end(), '|') - line.begin();
         if (idx == line.size()) {
             std::cout << "Error: bad input => " << line << std::endl;
             continue;
         }
         
+        // check date & value format
         std::string date = line.substr(0, idx - 1);
-        
         try {
             checkValidDate(date);
         } catch (const std::exception &e) {
@@ -128,8 +130,16 @@ float BitcoinExchange::openInputFileAndGetBitcoinPrice(char* fileName) {
             continue;
         }
 
-        if (!isRateAllDigits(line.substr(idx + 2, line.size() - idx - 2))) {
-            std::cout << "Error: bad input => " << line.substr(idx + 2, line.size() - idx - 2) << std::endl;
+        // check value format
+        try {
+            if (line.size() < idx + 2)
+                throw std::runtime_error("empty value");
+            checkValidRate(line.substr(idx + 2));
+        } catch (const std::exception &e) {
+            if (strcmp(e.what(), "empty value") == 0)
+                std::cout << "Error: bad input => " << e.what() << std::endl;
+            else
+                std::cout << "Error: bad input => " << line.substr(idx + 2) << std::endl;
             continue;
         }
 
