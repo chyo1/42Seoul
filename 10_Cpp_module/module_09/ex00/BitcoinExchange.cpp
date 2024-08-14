@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <cstring>
 
 BitcoinExchange::BitcoinExchange() {}
 
@@ -16,6 +17,19 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
 }
 
 BitcoinExchange::~BitcoinExchange() {}
+
+float stringToFloat(const std::string& str) {
+    std::stringstream ss(str);
+    float result;
+    ss >> result;
+
+    // Check for errors: if the stream fails or there are remaining characters in the string
+    if (ss.fail() || !ss.eof()) {
+        throw std::runtime_error("Invalid float format");
+    }
+
+    return result;
+}
 
 void BitcoinExchange::readDataFileAndGetRate() {
     std::ifstream file("data.csv");
@@ -38,7 +52,7 @@ void BitcoinExchange::readDataFileAndGetRate() {
         checkValidDate(date);
         checkValidRate(rate);
 
-        rates[date] = std::stof(rate);
+        rates[date] = stringToFloat(rate);
     }
     file.close();
     if (rates.size() == 0)
@@ -74,9 +88,9 @@ void BitcoinExchange::checkValidDate(std::string date) {
     if (!isDateAllDigits(date.substr(0, 4)) || !isDateAllDigits(date.substr(5, 2)) || !isDateAllDigits(date.substr(8, 2)))
         throw std::runtime_error("Invalid date");
 
-    year = stoi(date.substr(0, 4));
-    month = stoi(date.substr(5, 2));
-    day = stoi(date.substr(8, 2));
+    year = stringToFloat(date.substr(0, 4));
+    month = stringToFloat(date.substr(5, 2));
+    day = stringToFloat(date.substr(8, 2));
 
     if (month < 1 || month > 12 || day < 1 || day > 31)
         throw std::runtime_error("Invalid date");
@@ -96,7 +110,7 @@ void BitcoinExchange::checkValidDate(std::string date) {
 }
 
 void BitcoinExchange::checkValidRate(std::string rate) {
-    if (rate.size() == 0 || !isRateAllDigits(rate) || stof(rate) < 0)
+    if (rate.size() == 0 || !isRateAllDigits(rate) || stringToFloat(rate) < 0)
         throw std::runtime_error("Invalid exchange rate");
 }
 
@@ -145,7 +159,7 @@ float BitcoinExchange::openInputFileAndGetBitcoinPrice(char* fileName) {
 
         float value = 0;
         try {
-            value = stof(line.substr(idx + 2, line.size() - idx - 2));
+            value = stringToFloat(line.substr(idx + 2, line.size() - idx - 2));
         } catch (const std::exception &e) {
             std::cout << "Error: bad input => " << line.substr(idx + 2, line.size() - idx - 2) << std::endl;
             continue;
