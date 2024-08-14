@@ -17,6 +17,34 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
 
 BitcoinExchange::~BitcoinExchange() {}
 
+void BitcoinExchange::readDataFileAndGetRate() {
+    std::ifstream file("data.csv");
+
+    if (!file.is_open())
+        throw std::runtime_error("File not found or cannot be opened");
+        
+    std::string line;
+    std::getline(file, line);
+    if (line != "date,exchange_rate")
+        throw std::runtime_error("Invalid file format");
+
+    while (std::getline(file, line)) {
+        size_t idx = std::find(line.begin(), line.end(), ',') - line.begin();
+        if (idx == line.size())
+            throw std::runtime_error("Invalid file format");
+        
+        std::string date = line.substr(0, idx);
+        std::string rate = line.substr(idx + 1, line.size() - idx - 1);
+        checkValidDate(date);
+        checkValidRate(rate);
+
+        rates[date] = std::stof(rate);
+    }
+    file.close();
+    if (rates.size() == 0)
+        throw std::runtime_error("No data available");
+}
+
 bool isDateAllDigits(const std::string &str) {
     for (size_t i = 0; i < str.size(); i++) {
         if (!isdigit(str[i]))
@@ -26,38 +54,13 @@ bool isDateAllDigits(const std::string &str) {
 }
 
 bool isRateAllDigits(const std::string &str) {
-    for (size_t i = 0; i < str.size(); i++) {
-        if (!isdigit(str[i]) && str[i] != '.' && str[0] != '-')
+    if (!isdigit(str[0]) || !isdigit(str[str.size() - 1]))
+        return false;
+    for (size_t i = 1; i < str.size() - 1; i++) {
+        if (!isdigit(str[i]) && str[i] != '.')
             return false;
     }
     return true;
-}
-
-void BitcoinExchange::readDataFileAndGetRate() {
-    std::ifstream file("data.csv");
-
-    if (!file.is_open())
-        throw std::runtime_error("File not found");
-        
-   std::string line;
-   std::getline(file, line);
-   if (line != "date,exchange_rate")
-         throw std::runtime_error("Invalid file format");
-
-    while (std::getline(file, line)) {
-            size_t idx = std::find(line.begin(), line.end(), ',') - line.begin();
-            if (idx == line.size())
-                throw std::runtime_error("Invalid file format");
-            
-            std::string date = line.substr(0, idx);
-            std::string rate = line.substr(idx + 1, line.size() - idx - 1);
-            // std::cout << date << " " << rate << std::endl;
-            checkValidDate(date);
-            checkValidRate(rate);
-
-            rates[date] = std::stof(rate);
-    }
-    file.close();
 }
 
 void BitcoinExchange::checkValidDate(std::string date) {
@@ -82,7 +85,7 @@ void BitcoinExchange::checkValidDate(std::string date) {
         throw std::runtime_error("Invalid date");
 
     // 윤년 체크
-    if(!(year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+    if (!(year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
         if (month == 2 && day > 28)
             throw std::runtime_error("Invalid date");
     }
@@ -101,7 +104,7 @@ void BitcoinExchange::checkValidRate(std::string rate) {
 float BitcoinExchange::openInputFileAndGetBitcoinPrice(char* fileName) {
     std::ifstream file(fileName);
     if (!file.is_open())
-        throw std::runtime_error("File not found");
+        throw std::runtime_error("File not found or cannot be opened");
 
     std::string line;
     std::getline(file, line);
@@ -153,7 +156,6 @@ float BitcoinExchange::openInputFileAndGetBitcoinPrice(char* fileName) {
     file.close();
     return 0;
 }
-
 
 float BitcoinExchange::getBitcoinPrice(std::string date) {
     std::map<std::string, float>::iterator iter = rates.lower_bound(date);
