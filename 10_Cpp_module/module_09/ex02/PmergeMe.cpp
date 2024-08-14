@@ -18,11 +18,20 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &pmergeMe) {
     return *this;
 }
 
-PmergeMe::~PmergeMe() {
-    _vec.clear();
-    _list.clear();
-}
+PmergeMe::~PmergeMe() {}
 
+float stringToFloat(const std::string& str) {
+    std::stringstream ss(str);
+    float result;
+    ss >> result;
+
+    // Check for errors: if the stream fails or there are remaining characters in the string
+    if (ss.fail() || !ss.eof()) {
+        throw std::runtime_error("Invalid float format");
+    }
+
+    return result;
+}
 
 void checkIsValidNumber(std::string str) {
     for (size_t i = 0; i < str.length(); i++) {
