@@ -1,5 +1,5 @@
 #include "RPN.hpp"
-#include <iostream> //
+
 RPN::RPN() {}
 
 RPN::RPN(const RPN &other) {
@@ -23,10 +23,8 @@ long long RPN::run(std::string str) {
     while (str[++i] == ' ');
 
     for (; i < str.size(); i++) {
-        if (isdigit(str[i])) {
+        if (isdigit(str[i]))
             _s.push(str[i] - '0');
-            // std::cout << "pushed: " << str[i] - '0' << std::endl;
-        }
         else if (str[i] == ' ')
             continue;
         else if (isOperator(str[i])) {
