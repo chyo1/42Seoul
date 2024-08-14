@@ -99,7 +99,7 @@ void PmergeMe::mergeSort() {
         for (size_t i = 0; i < _vec.size(); i++) {
             size_t subIdx = _vec[i].second + pairLoc;
 
-            // std::cout << "mainVal " << _vec[i].first << " subIdx " << subIdx << std::endl;
+            std::cout << "mainVal " << _vec[i].first << " subVal " << _arr[subIdx] << std::endl;
             // 짝이 없으면 single, 있으면 pair
             if (_arr[subIdx] < 0)
                 mainSingleArr.push_back(_vec[i]);
@@ -121,8 +121,6 @@ void PmergeMe::mergeSort() {
             for (int i = startIdx + jacobStyle; i >= startIdx; i--) {
                 // std::cout << i << " " << pairLoc << std::endl;//
                 int minorIdx = mainPairArr[i].second + pairLoc;
-                if (_arr[minorIdx] < 0)
-                    continue;
 
                 // 값 넣을 범위 탐색
                 std::vector<pi>::iterator mainPairLoc = std::find(_vec.begin(), _vec.end(), mainPairArr[i]);
@@ -134,12 +132,12 @@ void PmergeMe::mergeSort() {
             }
 
             startIdx += (jacobStyle + 1);
-            int befSize = startIdx * 2 + 1, nowSize = mainPairArr.size() - startIdx + 1;
+            int befSize = startIdx * 2 + 1, nowSize = mainPairArr.size() - startIdx - 1;
             jacobStyle = std::pow(2, std::floor(log2(befSize)) + 1) - befSize - 1;
 
             // 0 < jacobStyle number < nowSize
             jacobStyle = std::max(jacobStyle, 0);
-            jacobStyle = std::min(jacobStyle, nowSize - 1);
+            jacobStyle = std::min(jacobStyle, nowSize);
             
         }
         for (size_t i = 0; i < mainSingleArr.size(); i++) 
