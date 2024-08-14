@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
     std::cout << "Before: ";
     pmergeMe.printArr();
 
-    pmergeMe.mergeSort();
+    pmergeMe.mergeSortVec();
 
     std::cout << "After: ";
     pmergeMe.printVec();

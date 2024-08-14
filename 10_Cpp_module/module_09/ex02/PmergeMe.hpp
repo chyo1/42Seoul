@@ -2,12 +2,12 @@
 #define PMERGEME_HPP
 
 #include <vector>
-#include <deque>
+#include <list>
 class PmergeMe {
     private:
         std::vector<int> _arr;
         std::vector< std::pair<int, int> > _vec;
-        std::deque< std::pair<int, int> > _deq; //
+        std::list< std::pair<int, int> > _list; //
         size_t _numberCnt;
 
     public:
@@ -18,10 +18,12 @@ class PmergeMe {
 
         void checkValidInput(int argc, char** argv);
         int devideAndGetPair();
-        void mergeSort();
+        void mergeSortVec();
+        void mergeSortList();
 
         void printArr();
         void printVec();
+        void printList();
 };
 
 #endif
