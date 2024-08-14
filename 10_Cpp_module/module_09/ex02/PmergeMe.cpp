@@ -85,17 +85,21 @@ bool cmp(pi a, pi b) { return a.first <= b.first; }
 
 void PmergeMe::mergeSort() {
     int pairLoc = devideAndGetPair();
-    std::vector< pi > mainPairArr, mainSingleArr;
+    printArr(); //
+    std::vector<pi> mainPairArr, mainSingleArr;
     
     // 메이저 배열 저장
     _vec.push_back( std::make_pair(_arr[0], 0) );
 
     while (pairLoc > 0) {
-
+        std::cout << "pairLoc " << pairLoc << std::endl;
+         printVec(); //
+        
         // 메인 배열 생성
         for (size_t i = 0; i < _vec.size(); i++) {
             size_t subIdx = _vec[i].second + pairLoc;
 
+            // std::cout << "mainVal " << _vec[i].first << " subIdx " << subIdx << std::endl;
             // 짝이 없으면 single, 있으면 pair
             if (_arr[subIdx] < 0)
                 mainSingleArr.push_back(_vec[i]);
@@ -107,12 +111,18 @@ void PmergeMe::mergeSort() {
         for (size_t i = 0; i < mainSingleArr.size(); i++)
             _vec.erase(std::find(_vec.begin(), _vec.end(), mainSingleArr[i]));
 
+        std::cout << "rm single thing" << std::endl;
+         printVec(); //
+
+
         // 야콥스타일 수 구하기, 그 수부터 앞으로 넣기
         int startIdx = 0, jacobStyle = 0;
         while (startIdx < static_cast<int>(mainPairArr.size())) {
             for (int i = startIdx + jacobStyle; i >= startIdx; i--) {
-                std::cout << i << " " << pairLoc << std::endl;//
+                // std::cout << i << " " << pairLoc << std::endl;//
                 int minorIdx = mainPairArr[i].second + pairLoc;
+                if (_arr[minorIdx] < 0)
+                    continue;
 
                 // 값 넣을 범위 탐색
                 std::vector<pi>::iterator mainPairLoc = std::find(_vec.begin(), _vec.end(), mainPairArr[i]);
@@ -137,5 +147,8 @@ void PmergeMe::mergeSort() {
 
         // pair 위치 조정
         pairLoc /= 2;
+        mainPairArr.clear();
+        mainSingleArr.clear();
+        printVec(); //
     }
 }
