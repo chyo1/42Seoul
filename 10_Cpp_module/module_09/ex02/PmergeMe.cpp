@@ -169,15 +169,14 @@ void PmergeMe::mergeSortVec() {
 
 void PmergeMe::mergeSortList() {
     int pairLoc = devideAndGetPair();
-    // printArr();
+    
     std::list<pi> mainPairList, mainSingleList;
     
     // 메이저 배열 저장
     _list.push_back(std::make_pair(_arr[0], 0));
 
     while (pairLoc > 0) {
-        
-        // 메인 배열 생성
+        // 메인 리스트 생성
         for (std::list<pi>::iterator it = _list.begin(); it != _list.end(); ++it) {
             size_t subIdx = it->second + pairLoc;
 
@@ -189,18 +188,24 @@ void PmergeMe::mergeSortList() {
         }
 
         // _list에서 singleList 삭제
-        for (std::list<pi>::iterator it = mainSingleList.begin(); it != mainSingleList.end(); ++it)
-            _list.remove(*it);
+        for (std::list<pi>::iterator it = mainSingleList.begin(); it != mainSingleList.end(); ) {
+            std::list<pi>::iterator found = std::find(_list.begin(), _list.end(), *it);
+            if (found != _list.end())
+                _list.erase(found);
+            it++;
+        }
 
         // 야콥스타일 수 구하기, 그 수부터 앞으로 넣기
         int startIdx = 0, jacobStyle = 0;
-        std::list<pi>::iterator mainPairIt = mainPairList.begin();
         while (startIdx < static_cast<int>(mainPairList.size())) {
             for (int i = startIdx + jacobStyle; i >= startIdx; i--) {
-                int minorIdx = std::next(mainPairIt, i)->second + pairLoc;
+                std::list<pi>::iterator it = mainPairList.begin();
+                std::advance(it, i);
+
+                int minorIdx = it->second + pairLoc;
 
                 // 값 넣을 범위 탐색
-                std::list<pi>::iterator mainPairLoc = std::find(_list.begin(), _list.end(), *std::next(mainPairIt, i));
+                std::list<pi>::iterator mainPairLoc = std::find(_list.begin(), _list.end(), *it);
                 ++mainPairLoc;
 
                 // begin() ~ majorPair의 범위에서 cmp 함수 기준으로 minorPair보다 작은 값을 찾은 후, 해당 자리에 minorPair 삽입
@@ -217,13 +222,13 @@ void PmergeMe::mergeSortList() {
             jacobStyle = std::min(jacobStyle, nowSize);
         }
 
-        for (std::list<pi>::iterator it = mainSingleList.begin(); it != mainSingleList.end(); ++it) 
+        for (std::list<pi>::iterator it = mainSingleList.begin(); it != mainSingleList.end(); ++it) {
             _list.insert(std::lower_bound(_list.begin(), _list.end(), *it, cmp), *it);
+        }
 
         // pair 위치 조정
         pairLoc /= 2;
         mainPairList.clear();
         mainSingleList.clear();
-        // printList();
     }
 }
