@@ -1,6 +1,7 @@
 #include "PmergeMe.hpp"
 #include <iostream>
 #include <algorithm>
+#include <sstream>
 
 typedef std::pair<int, int> pi;
 PmergeMe::PmergeMe() {}
@@ -175,14 +176,11 @@ void PmergeMe::mergeSortList() {
     _list.push_back(std::make_pair(_arr[0], 0));
 
     while (pairLoc > 0) {
-        // std::cout << "pairLoc " << pairLoc << std::endl;
-        // printList();
         
         // 메인 배열 생성
         for (std::list<pi>::iterator it = _list.begin(); it != _list.end(); ++it) {
             size_t subIdx = it->second + pairLoc;
 
-            // std::cout << "mainVal " << it->first << " subVal " << _arr[subIdx] << std::endl;
             // 짝이 없으면 single, 있으면 pair
             if (_arr[subIdx] < 0)
                 mainSingleList.push_back(*it);
@@ -193,9 +191,6 @@ void PmergeMe::mergeSortList() {
         // _list에서 singleList 삭제
         for (std::list<pi>::iterator it = mainSingleList.begin(); it != mainSingleList.end(); ++it)
             _list.remove(*it);
-
-        // std::cout << "rm single thing" << std::endl;
-        // printList();
 
         // 야콥스타일 수 구하기, 그 수부터 앞으로 넣기
         int startIdx = 0, jacobStyle = 0;
