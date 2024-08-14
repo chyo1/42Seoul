@@ -1,4 +1,5 @@
 #include "RPN.hpp"
+#include <stdexcept>
 
 RPN::RPN() {}
 
@@ -31,17 +32,17 @@ long long RPN::run(std::string str) {
             _s.push(calculate(str[i]));
         }
         else {
-            throw std::invalid_argument("Error");
+            throw std::runtime_error("Error");
         }
     }
     if (_s.size() != 1)
-        throw std::invalid_argument("Error");
+        throw std::runtime_error("Error");
     return _s.top();
 }
 
 long long RPN::calculate(char oper) {
     if (_s.size() < 2)
-        throw std::invalid_argument("Error");
+        throw std::runtime_error("Error");
 
     long long b = _s.top();
     _s.pop();
@@ -57,7 +58,7 @@ long long RPN::calculate(char oper) {
         return a * b;
     else if (oper == '/') {
         if (b == 0)
-            throw std::invalid_argument("Division by zero");
+            throw std::runtime_error("Division by zero");
         return a / b;
     }
     return 0; //
