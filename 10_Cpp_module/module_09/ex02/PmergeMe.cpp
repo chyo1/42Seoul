@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <sstream>
+#include <cmath>
 
 typedef std::pair<int, int> pi;
 PmergeMe::PmergeMe() {}
@@ -46,7 +47,7 @@ void PmergeMe::checkValidInput(int argc, char** argv) {
 
     for (int i = 1; i < argc; i++) {
         checkIsValidNumber(argv[i]);
-        _arr.push_back(std::stoi(argv[i]));
+        _arr.push_back(stringToFloat(argv[i]));
     }
     _numberCnt = argc - 1;
 }
