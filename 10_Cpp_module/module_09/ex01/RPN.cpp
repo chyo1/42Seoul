@@ -19,7 +19,8 @@ bool isOperator(char c) {
 }
 
 long long RPN::run(std::string str) {
-
+    if (str.empty())
+        throw std::runtime_error("Error");
     size_t i = -1;
     while (str[++i] == ' ');
 

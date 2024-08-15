@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
     RPN rpn;
     try {
         std::cout << rpn.run(argv[1]) << std::endl;
-    } catch (std::invalid_argument &e) {
+    } catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
     
