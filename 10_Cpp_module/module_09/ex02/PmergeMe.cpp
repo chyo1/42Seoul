@@ -22,17 +22,34 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &pmergeMe) {
 
 PmergeMe::~PmergeMe() {}
 
-float stringToFloat(const std::string& str) {
-    std::stringstream ss(str);
-    float result;
-    ss >> result;
+// int stringToInt(const std::string& str) {
+//     std::stringstream ss(str);
+//     int result;
+//     ss >> result;
 
-    // Check for errors: if the stream fails or there are remaining characters in the string
-    if (ss.fail() || !ss.eof()) {
-        throw std::runtime_error("Error");
+//     // Check for errors: if the stream fails or there are remaining characters in the string
+//     if (ss.fail() || !ss.eof()) {
+//         throw std::runtime_error("Error");
+//     }
+
+//     return result;
+// }
+
+int stringToInt(const std::string& str) {
+    char* end;
+    long value = std::strtol(str.c_str(), &end, 10);
+
+    // Check if the entire string was parsed
+    if (*end != '\0') {
+        throw std::invalid_argument("Error");
     }
 
-    return result;
+    // Check for overflow and underflow
+    if (value > INT_MAX || value < INT_MIN) {
+        throw std::out_of_range("Error");
+    }
+
+    return static_cast<int>(value);
 }
 
 void checkIsValidNumber(std::string str) {
@@ -45,11 +62,15 @@ void PmergeMe::checkValidInput(int argc, char** argv) {
     if (argc < 2)
         throw std::invalid_argument("Usage: ./PmergeMe num1, num2, ...");
 
-    for (int i = 1; i < argc; i++) {
-        checkIsValidNumber(argv[i]);
-        _arr.push_back(stringToFloat(argv[i]));
+    try {
+        for (int i = 1; i < argc; i++) {
+            checkIsValidNumber(argv[i]);
+            _arr.push_back(stringToInt(argv[i]));
+        }
+        _numberCnt = argc - 1;
+    } catch (const std::exception& e) {
+        throw std::invalid_argument(e.what());
     }
-    _numberCnt = argc - 1;
 }
 
 void PmergeMe::printArr() {
