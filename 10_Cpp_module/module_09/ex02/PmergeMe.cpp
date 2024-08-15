@@ -53,6 +53,8 @@ int stringToInt(const std::string& str) {
 }
 
 void checkIsValidNumber(std::string str) {
+    if (str.empty())
+        throw std::invalid_argument("Error");
     for (size_t i = 0; i < str.length(); i++) {
         if (!isdigit(str[i])) 
             throw std::invalid_argument("Error");
