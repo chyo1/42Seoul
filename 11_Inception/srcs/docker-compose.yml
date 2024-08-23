@@ -7,13 +7,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/hyowon/42Seoul/11_Inception/inception/mariadb
+      device: /Users/hyowon/42Seoul/11_Inception/inception/mariadb # /home/hyowchoi/data/mariadb
       o: bind
   wordpress_data:
     driver: local
     driver_opts:
       type: none
-      device: /Users/hyowon/42Seoul/11_Inception/inception/wordpress
+      device: /Users/hyowon/42Seoul/11_Inception/inception/wordpress # /home/hyowchoi/data/wordpress
       o: bind
 
 # 컨테이너 실행
@@ -27,7 +27,7 @@ services:
     expose:
       - "3306"
     volumes:
-      - mariadb_data:/var/lib/mariadb
+      - mariadb_data:/var/lib/mariadb # mariadb_data:/var/lib/mysql
     networks:
       - inception_network
     env_file:
