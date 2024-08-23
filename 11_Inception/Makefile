@@ -1,6 +1,6 @@
 all:
-	mkdir -p /Users/hyowon/42Seoul/11_Inception/inception/mariadb
-	mkdir -p /Users/hyowon/42Seoul/11_Inception/inception/wordpress
+	mkdir -p /Users/hyowon/42Seoul/11_Inception/inception/mariadb # /home/hyowchoi/data/mariadb
+	mkdir -p /Users/hyowon/42Seoul/11_Inception/inception/wordpress  # /home/hyowchoi/data/wordpress
 	@docker compose -f ./srcs/docker-compose.yml up -d --build
 
 down:
