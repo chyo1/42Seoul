@@ -1,4 +1,4 @@
-FROM debian:bookwarm
+FROM debian:bookworm
 
 EXPOSE 3306
 

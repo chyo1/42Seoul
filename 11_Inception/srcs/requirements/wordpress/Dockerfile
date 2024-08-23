@@ -1,4 +1,4 @@
-FROM debian:bookwarm
+FROM debian:bookworm
 
 EXPOSE 9000
 
@@ -22,14 +22,14 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/bin/wp
 
-COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/
+COPY ./conf/www.conf /etc/php/8.2/fpm/pool.d/
 COPY ./tools/init.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/init.sh
 
-RUN mkdir /run/php
+RUN mkdir -p /run/php
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--", "/usr/local/bin/init.sh"]
 
 WORKDIR /var/www/html/
 
-CMD ["php-fpm7.3", "-F"]
+CMD ["php-fpm8.2", "-F"]

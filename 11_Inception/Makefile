@@ -1,6 +1,6 @@
 all:
-	mkdir -p /home/hyowchoi/data/mariadb
-	mkdir -p /home/hyowchoi/data/wordpress
+	mkdir -p /Users/hyowon/42Seoul/11_Inception/inception/mariadb
+	mkdir -p /Users/hyowon/42Seoul/11_Inception/inception/wordpress
 	@docker compose -f ./srcs/docker-compose.yml up -d --build
 
 down:
@@ -15,7 +15,7 @@ clean:
 
 fclean:
 	make clean
-	rm -rf /home/hyowchoi/data
+	rm -rf /Users/hyowon/42Seoul/11_Inception/inception
 
 re:
 	make fclean

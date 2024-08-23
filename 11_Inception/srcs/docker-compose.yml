@@ -7,13 +7,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/hyowchoi/data/mariadb
+      device: /Users/hyowon/42Seoul/11_Inception/inception/mariadb
       o: bind
   wordpress_data:
     driver: local
     driver_opts:
       type: none
-      device: /home/hyowchoi/data/wordpress
+      device: /Users/hyowon/42Seoul/11_Inception/inception/wordpress
       o: bind
 
 # 컨테이너 실행
