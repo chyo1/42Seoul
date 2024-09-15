@@ -8,7 +8,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		$(CXX) $(CFLAGS) -o $@ $(SRCS)
+		$(CXX) $(CFLAGS) -o $@ $(OBJS)
 
 %.o : %.cpp
 	$(CXX) $(CFLAGS) -c $^ -o $@
